@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layoutDirection="rtl">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/subjectname"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:text="لغة انجليزية"/>
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/score"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:textColor="#FFF"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:background="@drawable/roundedsemicircle"
+            android:text="28"/>
+
+        <com.amirahmed.nanoschool.Utils.CircleDisplay
+            android:id="@+id/cd"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/container"
+        android:background="#919191"/>
+
+</RelativeLayout>

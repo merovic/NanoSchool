@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        android:id="@+id/toolbar_actionbar_en"
+        layout="@layout/toolbar_default_en"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/megaphone"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/calling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="قم بالضغط على زر النداء عند وصولك للمدرسة حتى يتم اخراج ابنكم الى باب المدرسة وذلك لضمان أمان الطالب و تفادى وقوفه منفردا فترة طويلة"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:layout_margin="16dp"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_fill"
+        android:text="ابدا النداء "
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:drawableRight="@drawable/ads"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawablePadding="10dp"/>
+
+</LinearLayout>

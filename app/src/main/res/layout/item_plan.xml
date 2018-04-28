@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    card_view:cardElevation="5dp"
+    card_view:cardCornerRadius="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/subject"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@color/myPrimaryColor"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/book"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/subjectName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="لغة عربية"
+                        android:textColor="#FFF"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutmain"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/teacher"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/teacherName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="المعلم/احمد ابراهيم"/>
+
+                    <ImageView
+                        android:id="@+id/arrow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_keyboard_arrow_down_black_24dp"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl">
+
+                    <ImageView
+                        android:id="@+id/book2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/book2"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/titletext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@+id/book2"
+                        android:text="عنوان الدرس"
+                        android:textColor="@color/myPrimaryColor"
+                        android:textStyle="bold"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titletext"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/book2"
+                        android:text="الوضوء ة الصلاة فى المسجد"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl">
+
+                    <ImageView
+                        android:id="@+id/goalspic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/goals"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/goalstext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@+id/goalspic"
+                        android:text="الاهداف"
+                        android:textColor="@color/myPrimaryColor"
+                        android:textStyle="bold"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/goals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/goalstext"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/goalspic"
+                        android:text="الوضوء ة الصلاة فى المسجد"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl">
+
+                    <ImageView
+                        android:id="@+id/notes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/homework222"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/notestext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@+id/notes"
+                        android:text="الواجب"
+                        android:textColor="@color/myPrimaryColor"
+                        android:textStyle="bold"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/hw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/notestext"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/notes"
+                        android:text="الوضوء ة الصلاة فى المسجد"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl">
+
+                    <ImageView
+                        android:id="@+id/mola"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/notes"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/molatext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@+id/mola"
+                        android:text="ملاحظات"
+                        android:textColor="@color/myPrimaryColor"
+                        android:textStyle="bold"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/hw2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/molatext"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/mola"
+                        android:text="الوضوء ة الصلاة فى المسجد"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl">
+
+                    <ImageView
+                        android:id="@+id/attachments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/attachments"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/attachmentstext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toLeftOf="@+id/attachments"
+                        android:text="المرفقات"
+                        android:textColor="@color/myPrimaryColor"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:layout_width="70dp"
+                        android:layout_height="25dp"
+                        android:layout_below="@+id/attachmentstext"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/attachments"
+                        android:background="@drawable/rounded_fill"
+                        android:drawableRight="@drawable/download"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="تحميل"
+                        android:textColor="#FFF"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/myPrimaryColor"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        android:id="@+id/toolbar_actionbar_en"
+        layout="@layout/toolbar_default_en"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedframebold"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/languagetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black_p50"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/languagesgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
+
+            <RadioButton
+                android:id="@+id/arabic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arabic"
+                android:layout_margin="5dp"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:layout_margin="5dp"
+                android:layout_weight="1"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submitbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedfill"
+            android:textColor="#FFF"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Submit"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layoutDirection="rtl"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/nationality"/>
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="اللغة"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+
+        <Button
+            android:id="@+id/englishbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="3dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/myPrimaryColor"
+            android:background="@drawable/roundedtext3"
+            android:textSize="12sp"
+            android:text="English"/>
+
+        <Button
+            android:id="@+id/arabicbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:background="@drawable/roundedfill"
+            android:textColor="#FFF"
+            android:layout_margin="3dp"
+            android:textSize="12sp"
+            android:text="عربى"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="#919191"/>
+
+</LinearLayout>

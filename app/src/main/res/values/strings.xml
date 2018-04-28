@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NanoSchool</string>
+    <string name="drawer_open">Menu opened</string>
+    <string name="drawer_close">Menu closed</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="copy_right" translatable="false">Copyrights © %1$d</string>
+</resources>

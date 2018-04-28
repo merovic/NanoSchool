@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+                android:layout_margin="3dp"
+              android:layout_height="150dp">
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/school3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="#99000000">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المشاركة فى اليوم العالمى للطفل"
+            android:layout_margin="5dp"
+            android:textSize="12sp"
+            android:textColor="#FFF"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="٧٤ صورة"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:shadowColor="@color/myPrimaryColor"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:textColor="#FFF"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اكتوبر ٢٠١٤"
+                android:textSize="12sp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textColor="#FFF"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
