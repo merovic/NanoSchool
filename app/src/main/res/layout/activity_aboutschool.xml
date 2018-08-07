@@ -249,6 +249,7 @@
                 android:orientation="vertical">
 
                 <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                    android:id="@+id/faceclick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -257,9 +258,10 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="30dp"
                     android:layout_weight="1"
-                    android:text="facbook.com/mykids4schools"/>
+                    android:text="facbook.com/nanoschool"/>
 
                 <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                    android:id="@+id/twitterclick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -268,9 +270,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="40dp"
-                    android:text="twitter.com/mykids4schools"/>
+                    android:text="twitter.com/nanoschool"/>
 
                 <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                    android:id="@+id/snapclick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -279,7 +282,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="35dp"
-                    android:text="snapchat.com/mykids4schools"/>
+                    android:text="snapchat.com/nanoschool"/>
 
             </LinearLayout>
 

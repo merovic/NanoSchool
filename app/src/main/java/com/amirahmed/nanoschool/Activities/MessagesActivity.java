@@ -1,7 +1,9 @@
 package com.amirahmed.nanoschool.Activities;
 
 
+import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,20 +25,26 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+
+import droidninja.filepicker.FilePickerBuilder;
+import droidninja.filepicker.FilePickerConst;
 
 public class MessagesActivity extends AppCompatActivity{
 
-    EditText teacheredittext,title,content;
+    EditText teacheredittext,title,content,attachedit;
 
     TeachersListFragment teachersListFragment;
 
-    Button send;
+    Button send,attach;
 
     private Toolbar mToolbar,mToolbar2;
 
     TinyDB tinyDB;
 
     int language;
+
+    private ArrayList<String> docPaths = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -121,7 +129,10 @@ public class MessagesActivity extends AppCompatActivity{
 
         title = findViewById(R.id.editText);
         content = findViewById(R.id.content);
+        attachedit = findViewById(R.id.attachedit);
         send = findViewById(R.id.sendbutton);
+        attach = findViewById(R.id.attachbutton);
+
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,10 +153,38 @@ public class MessagesActivity extends AppCompatActivity{
             }
         });
 
+        attach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FilePickerBuilder.getInstance().setMaxCount(10)
+                        .setSelectedFiles(docPaths)
+                        .setActivityTheme(R.style.LibAppTheme)
+                        .pickFile(MessagesActivity.this);
+            }
+        });
+
     }
 
     private void showMessage(String _s) {
         Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode)
+        {
+
+            case FilePickerConst.REQUEST_CODE_DOC:
+                if(resultCode== Activity.RESULT_OK && data!=null)
+                {
+                    docPaths = new ArrayList<>();
+                    docPaths.addAll(data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS));
+
+                    attachedit.setText(docPaths.get(0));
+                }
+                break;
+        }
     }
 
 

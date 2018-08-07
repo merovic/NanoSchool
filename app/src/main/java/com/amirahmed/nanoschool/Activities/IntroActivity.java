@@ -42,10 +42,10 @@ public class IntroActivity extends AppIntro{
             addSlide(SampleSlide.newInstance(R.layout.fragment_slide4));
 
             setSkipText("تخطى");
-            setSkipTextTypeface("fonts/lmaar.ttf");
+            setSkipTextTypeface("fonts/DroidArabicKufi.ttf");
 
             setDoneText("تم");
-            setDoneTextTypeface("fonts/lmaar.ttf");
+            setDoneTextTypeface("fonts/DroidArabicKufi.ttf");
 
         }else
             {
@@ -57,10 +57,10 @@ public class IntroActivity extends AppIntro{
                 addSlide(SampleSlide.newInstance(R.layout.fragment_slide4_en));
 
                 setSkipText("Skip");
-                setSkipTextTypeface("fonts/lmaar.ttf");
+                setSkipTextTypeface("fonts/DroidArabicKufi.ttf");
 
                 setDoneText("Done");
-                setDoneTextTypeface("fonts/lmaar.ttf");
+                setDoneTextTypeface("fonts/DroidArabicKufi.ttf");
             }
 
 

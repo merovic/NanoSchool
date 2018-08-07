@@ -137,7 +137,14 @@ public class WatchSyncActivity extends AppCompatActivity{
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null){
             if(result.getContents()==null){
-                Toast.makeText(this, "You cancelled the scanning", Toast.LENGTH_LONG).show();
+                if(language==1)
+                {
+                    Toast.makeText(this, "تم الغاء عملية المسح", Toast.LENGTH_LONG).show();
+                }else
+                    {
+                        Toast.makeText(this, "You cancelled the scanning", Toast.LENGTH_LONG).show();
+                    }
+
             }
             else {
                 //Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();

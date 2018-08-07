@@ -35,7 +35,7 @@ public class TextViewWithFont extends TextView {
 
     private void init() {
         if (!isInEditMode()) {
-            tf = Typeface.createFromAsset(getResources().getAssets(), "fonts/lmaar.ttf");
+            tf = Typeface.createFromAsset(getResources().getAssets(), "fonts/DroidArabicKufi.ttf");
             setTypeface(tf);
         }
     }

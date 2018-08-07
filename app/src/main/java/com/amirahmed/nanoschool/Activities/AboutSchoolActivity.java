@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amirahmed.nanoschool.R;
 import com.amirahmed.nanoschool.Utils.TinyDB;
@@ -34,6 +35,8 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
     int language;
 
     private SliderLayout mDemoSlider;
+
+    TextView faceclick,twitterclick,snapclick;
 
     ImageView a,b,c,d,e,titlepic;
     TextView txt1,txt2,txt3,txt4,txt5,titletext;
@@ -410,12 +413,47 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             }
         });
 
+        faceclick = findViewById(R.id.faceclick);
+        twitterclick = findViewById(R.id.twitterclick);
+        snapclick = findViewById(R.id.snapclick);
+
+        faceclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showMessage("تحت التجريب");
+            }
+        });
+
+        twitterclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showMessage("تحت التجريب");
+
+            }
+        });
+
+        snapclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showMessage("تحت التجريب");
+            }
+        });
+
+
+
     }
 
     @Override
     protected void onDestroy() {
         mDemoSlider.stopAutoCycle();
         super.onDestroy();
+    }
+
+    private void showMessage(String _s) {
+        Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_LONG).show();
     }
 
     @Override

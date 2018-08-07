@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.amirahmed.nanoschool.Adapters.TermExamsAdapter;
 import com.amirahmed.nanoschool.Models.TermItem;
@@ -25,6 +26,8 @@ public class TermFragment extends Fragment {
     private List<TermItem> termItemList;
 
     TermExamsAdapter adapter;
+
+    TextView title;
 
     TinyDB tinyDB;
 
@@ -44,6 +47,16 @@ public class TermFragment extends Fragment {
         tinyDB = new TinyDB(getActivity());
 
         language = tinyDB.getInt("language");
+
+        title = view.findViewById(R.id.title);
+
+        if(language == 1)
+        {
+            title.setText("اختبارات التيرم للعام الدراسى ٢٠١٧/٢٠١٨");
+        }else
+            {
+                title.setText(" Term Exams for Educational Year 2017/2018");
+            }
 
         initializeData();
         initializeAdapter();

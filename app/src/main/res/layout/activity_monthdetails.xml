@@ -48,7 +48,7 @@
             <com.amirahmed.nanoschool.Utils.TextViewWithFont
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:text="معلومات عن الاختبار"
+                android:text="معلومات الأختبار"
                 android:textColor="#FFF"
                 android:textAlignment="center"
                 android:background="@color/myPrimaryColor"

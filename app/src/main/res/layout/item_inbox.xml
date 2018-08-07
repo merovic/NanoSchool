@@ -103,18 +103,21 @@
                 android:layout_below="@id/second">
 
                 <ImageView
+                    android:id="@+id/deletebutton"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/newtrach"/>
 
                 <ImageView
+                    android:id="@+id/downloadattachmentbutton"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="20dp"
                     android:src="@drawable/newattch"/>
 
                 <ImageView
+                    android:id="@+id/replaybutton"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="20dp"

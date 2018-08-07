@@ -54,7 +54,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
     SimpleDateFormat month_date;
 
-    LinearLayout tab1layout,tab2layout,layout1,layout2,layout11,layout12;
+    LinearLayout selection,tab1layout,tab2layout,layout1,layout2,layout11,layout12;
 
     TextView tab1text,tab2text,textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9;
 
@@ -335,6 +335,7 @@ public class AttendanceActivity extends AppCompatActivity {
             }
         });
 
+        selection = findViewById(R.id.selection);
         tab1layout = findViewById(R.id.tab1layout);
         tab2layout = findViewById(R.id.tab2layout);
         layout1 = findViewById(R.id.layout1);
@@ -360,6 +361,8 @@ public class AttendanceActivity extends AppCompatActivity {
 
         if(language==1)
         {
+            selection.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+
             tab1text.setText("نسبة الحضور و الغياب");
             tab2text.setText("عدد الايام و الحصص");
 
@@ -386,6 +389,8 @@ public class AttendanceActivity extends AppCompatActivity {
 
         }else
             {
+                selection.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
                 tab1text.setText("Attendance Rate");
                 tab2text.setText("Days and Classes");
 

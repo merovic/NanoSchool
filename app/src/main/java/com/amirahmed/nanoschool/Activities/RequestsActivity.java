@@ -241,10 +241,26 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
                 details.setText("");
                 if(language==1)
                 {
-                    showMessage("تم الارسال بنجاح");
+                    if(sp.getSelectedItemPosition()==0 || details.getText().toString().equals(""))
+                    {
+                        showMessage("احد الحقول فارغة");
+
+                    }else
+                        {
+                            showMessage("تم الارسال بنجاح");
+                        }
+
                 }else
                     {
-                        showMessage("Sent Successfully");
+
+                        if(sp.getSelectedItemPosition()==0 || details.getText().toString().equals(""))
+                        {
+                            showMessage("Input Missing");
+
+                        }else
+                        {
+                            showMessage("Sent Successfully");
+                        }
                     }
 
             }

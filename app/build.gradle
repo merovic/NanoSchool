@@ -49,5 +49,6 @@ dependencies {
     compile 'com.allattentionhere:autoplayvideos:0.2.0'
     compile 'com.github.medyo:android-about-page:1.2.2'
     compile 'com.github.apl-devs:appintro:v4.2.2'
+    compile 'com.droidninja:filepicker:2.1.5'
     testCompile 'junit:junit:4.12'
 }

@@ -13,7 +13,6 @@ import android.widget.ImageView;
 
 import com.amirahmed.nanoschool.Activities.IntroActivity;
 import com.amirahmed.nanoschool.Activities.LoginActivity;
-import com.amirahmed.nanoschool.MainActivity;
 import com.amirahmed.nanoschool.R;
 import com.bumptech.glide.Glide;
 import com.daimajia.androidanimations.library.Techniques;
@@ -27,7 +26,6 @@ public class SplashScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -127,7 +125,7 @@ public class SplashScreen extends Activity {
                     e.apply();
                 } else
                 {
-                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                    Intent i = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(i);
                     finish();
                 }
@@ -135,7 +133,7 @@ public class SplashScreen extends Activity {
         });
 
         ImageView splash = findViewById(R.id.splash);
-        Glide.with(this).load(R.drawable.splash4).into(splash);
+        Glide.with(this).load(R.drawable.bg3).into(splash);
 
 
 

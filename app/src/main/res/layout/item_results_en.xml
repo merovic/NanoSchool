@@ -26,12 +26,12 @@
             android:id="@+id/score"
             android:layout_width="40dp"
             android:layout_height="35dp"
-            android:textColor="#FFF"
+            android:textColor="@color/myPrimaryDarkColor"
             android:textSize="14sp"
             android:padding="8dp"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:background="@drawable/roundedsemicircle"
+            android:textStyle="bold"
             android:text="28"/>
 
         <com.amirahmed.nanoschool.Utils.CircleDisplay

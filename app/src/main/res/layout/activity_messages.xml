@@ -69,6 +69,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/attachedit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundedgray"
@@ -84,6 +85,7 @@
                 android:padding="10dp"/>
 
             <Button
+                android:id="@+id/attachbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
@@ -92,7 +94,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/rounded_fill"
-                android:text="تحميل"/>
+                android:text="أرفق"/>
 
         </LinearLayout>
 
