@@ -3,6 +3,7 @@ package com.amirahmed.nanoschool.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +57,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
     }
 
     @Override
-    public void onBindViewHolder(final InboxViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final InboxViewHolder holder, final int position) {
 
         holder.senderName.setText(inboxItems.get(position).senderName);
         holder.date.setText(inboxItems.get(position).Date);

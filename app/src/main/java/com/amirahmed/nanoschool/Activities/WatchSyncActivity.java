@@ -147,8 +147,7 @@ public class WatchSyncActivity extends AppCompatActivity{
 
             }
             else {
-                //Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
-                //watchid.setText(result.getContents());
+
                 EventBus.getDefault().post(new AddButtonClick(result.getContents()));
 
                 final FragmentManager fm = getFragmentManager();

@@ -20,7 +20,7 @@ import com.amirahmed.nanoschool.Utils.TinyDB;
 
 public class LoginActivity extends Activity{
 
-    Button login;
+    Button login,visitor;
 
     TinyDB tinyDB;
 
@@ -58,6 +58,7 @@ public class LoginActivity extends Activity{
         resetpass = findViewById(R.id.resetpass);
 
         login = findViewById(R.id.loginbutton);
+        visitor = findViewById(R.id.visitorbutton);
 
         if(language == 1)
         {
@@ -86,7 +87,15 @@ public class LoginActivity extends Activity{
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this , MainActivity.class );
+                Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        visitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this , VisitorActivity.class);
                 startActivity(intent);
             }
         });

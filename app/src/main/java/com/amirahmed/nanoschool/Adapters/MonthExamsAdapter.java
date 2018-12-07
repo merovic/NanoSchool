@@ -3,10 +3,12 @@ package com.amirahmed.nanoschool.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.amirahmed.nanoschool.Activities.ExamMonthDetailsActivity;
@@ -62,6 +64,11 @@ public class MonthExamsAdapter extends RecyclerView.Adapter<MonthExamsAdapter.Mo
         holder.fullmark.setText(monthItemList.get(position).finalScore);
         holder.passmark.setText(monthItemList.get(position).passScore);
 
+        if(position==2)
+        {
+            holder.box.setBackgroundColor(Color.RED);
+        }
+
     }
 
     @Override
@@ -72,6 +79,7 @@ public class MonthExamsAdapter extends RecyclerView.Adapter<MonthExamsAdapter.Mo
     public class MonthExamsViewHolder extends RecyclerView.ViewHolder {
 
         TextView date1,date2,subjectName,teacherName,fullmark,passmark;
+        LinearLayout box;
 
         public MonthExamsViewHolder(View itemView) {
             super(itemView);
@@ -81,6 +89,7 @@ public class MonthExamsAdapter extends RecyclerView.Adapter<MonthExamsAdapter.Mo
             teacherName = itemView.findViewById(R.id.teacherName);
             fullmark = itemView.findViewById(R.id.fullmark);
             passmark = itemView.findViewById(R.id.passmark);
+            box = itemView.findViewById(R.id.subject);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

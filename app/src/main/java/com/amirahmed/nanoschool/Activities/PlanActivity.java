@@ -40,6 +40,8 @@ public class PlanActivity extends AppCompatActivity {
 
     public int language;
 
+    TextView title;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,8 @@ public class PlanActivity extends AppCompatActivity {
         tinydb = new TinyDB(getApplicationContext());
 
         language = tinydb.getInt("language");
+
+        title = findViewById(R.id.title);
 
         mToolbar = findViewById(R.id.toolbar_actionbar);
         mToolbar2 = findViewById(R.id.toolbar_actionbar_en);
@@ -94,6 +98,8 @@ public class PlanActivity extends AppCompatActivity {
             b4.setText("الاربعاء");
             b5.setText("الخميس");
 
+            title.setText("خطة الأسبوع الحادى عشر");
+
         }else
         {
             mToolbar2.setVisibility(View.VISIBLE);
@@ -123,6 +129,8 @@ public class PlanActivity extends AppCompatActivity {
             b3.setText("Tue");
             b4.setText("Wed");
             b5.setText("Thu");
+
+            title.setText("Plan for week twelve");
 
         }
 

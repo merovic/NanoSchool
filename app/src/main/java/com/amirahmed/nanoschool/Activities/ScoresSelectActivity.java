@@ -1,6 +1,7 @@
 package com.amirahmed.nanoschool.Activities;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.amirahmed.nanoschool.Adapters.ScoresSelectAdapter;
 import com.amirahmed.nanoschool.Models.ScoresSelectItem;
 import com.amirahmed.nanoschool.R;
+import com.amirahmed.nanoschool.Utils.CircleDisplay;
 import com.amirahmed.nanoschool.Utils.TinyDB;
 
 import java.lang.reflect.Field;
@@ -33,6 +35,9 @@ public class ScoresSelectActivity extends AppCompatActivity {
 
     int language;
 
+    CircleDisplay cd;
+    TextView total;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,21 @@ public class ScoresSelectActivity extends AppCompatActivity {
         tinydb = new TinyDB(getApplicationContext());
 
         language = tinydb.getInt("language");
+
+        cd = findViewById(R.id.circleDisplay);
+        total = findViewById(R.id.total);
+
+        cd.showValue(Float.parseFloat("70"), 100f, true);
+        cd.setAnimDuration(3000);
+        cd.setValueWidthPercent(30f);
+        cd.setTextSize(10f);
+        cd.setColor(Color.parseColor("#5FB336"));
+        cd.setDrawText(true);
+        cd.setDrawInnerCircle(true);
+        cd.setFormatDigits(0);
+        cd.setTouchEnabled(false);
+        cd.setUnit("%");
+        cd.setStepSize(0.5f);
 
         mToolbar = findViewById(R.id.toolbar_actionbar);
         mToolbar2 = findViewById(R.id.toolbar_actionbar_en);
@@ -70,6 +90,8 @@ public class ScoresSelectActivity extends AppCompatActivity {
             });
 
             getActionBarTextView().setVisibility(View.GONE);
+
+            total.setText("التقييم الكلى");
         }else
         {
             mToolbar2.setVisibility(View.VISIBLE);
@@ -91,6 +113,8 @@ public class ScoresSelectActivity extends AppCompatActivity {
 
 
             getActionBarTextView().setVisibility(View.GONE);
+
+            total.setText("Total Score");
         }
 
         rad1 = findViewById(R.id.button21);

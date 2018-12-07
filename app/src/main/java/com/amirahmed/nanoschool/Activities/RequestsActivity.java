@@ -237,11 +237,9 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sp.setSelection(0);
-                details.setText("");
                 if(language==1)
                 {
-                    if(sp.getSelectedItemPosition()==0 || details.getText().toString().equals(""))
+                    if(sp.getSelectedItemPosition()== 0 || details.getText().toString().equals(""))
                     {
                         showMessage("احد الحقول فارغة");
 
@@ -253,7 +251,7 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
                 }else
                     {
 
-                        if(sp.getSelectedItemPosition()==0 || details.getText().toString().equals(""))
+                        if(sp.getSelectedItemPosition()== 0 || details.getText().toString().equals(""))
                         {
                             showMessage("Input Missing");
 
@@ -262,6 +260,9 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
                             showMessage("Sent Successfully");
                         }
                     }
+
+                sp.setSelection(0);
+                details.setText("");
 
             }
         });

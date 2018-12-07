@@ -3,6 +3,8 @@ package com.amirahmed.nanoschool.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,6 +30,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
@@ -44,6 +48,8 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
     RelativeLayout titlepicmain;
 
     private GoogleMap mMap;
+
+    TimerTask hourTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,33 +210,7 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             @Override
             public void onClick(View v) {
 
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic12).into(a);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
-
-                map.setVisibility(View.VISIBLE);
-                text.setVisibility(View.GONE);
-                social.setVisibility(View.GONE);
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(map);
-
-                if(language==1)
-                {
-                    //Glide.with(getApplicationContext()).load(R.drawable.mawkeena).into(titlepic);
-                    titletext.setText("موقعنا");
-                }else
-                {
-                    //Glide.with(getApplicationContext()).load(R.drawable.mawkeenaen).into(titlepic);
-                    titletext.setText("Location");
-                }
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(titlepicmain);
+                a();
 
             }
         });
@@ -239,35 +219,7 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             @Override
             public void onClick(View v) {
 
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic52).into(b);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
-
-                text.setVisibility(View.GONE);
-                map.setVisibility(View.GONE);
-                social.setVisibility(View.VISIBLE);
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(social);
-
-                if(language==1)
-                {
-                    social.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-                    //Glide.with(getApplicationContext()).load(R.drawable.tabeena).into(titlepic);
-                    titletext.setText("تابعنا");
-                }else
-                {
-                    social.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-                    //Glide.with(getApplicationContext()).load(R.drawable.tabeenaen).into(titlepic);
-                    titletext.setText("Follow");
-                }
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(titlepicmain);
+                b();
 
             }
         });
@@ -276,45 +228,7 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             @Override
             public void onClick(View v) {
 
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic32).into(c);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
-
-                text.setVisibility(View.VISIBLE);
-                map.setVisibility(View.GONE);
-                social.setVisibility(View.GONE);
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(text);
-
-                if(language==1)
-                {
-                    txt1.setText("الحمد الله خلق الانسان و علمه البيان جاعل العقل نعم و الفكر موهبة و اثنى على النبى محمد خير الدعاه و المعلمين");
-                    txt2.setText("من هذا الصرح العلمى الشامخ ستكون انطلاقتنا بمشيئة الله لترسيخ مبادئ الدين الاسلامى فى نفوس ابنائنا");
-                    txt3.setText("و بناء فكرهم ليستنير بموكبة التطور العلمى و الثقافى و تنشئتهم تنشئه صالحه");
-                    txt4.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
-                    txt5.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.manger).into(titlepic);
-                    titletext.setText("كلمة مدير المدرسة");
-                }else
-                {
-                    txt1.setText("To Provide outstanding educational services based on international standards through:");
-                    txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-                    txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
-                    txt4.setText("To Provide outstanding educational services based on international standards through:");
-                    txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.mangeren).into(titlepic);
-                    titletext.setText("School Manger");
-                }
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(titlepicmain);
+                c();
 
             }
         });
@@ -323,45 +237,7 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             @Override
             public void onClick(View v) {
 
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic42).into(d);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
-
-                text.setVisibility(View.VISIBLE);
-                map.setVisibility(View.GONE);
-                social.setVisibility(View.GONE);
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(text);
-
-                if(language==1)
-                {
-                    txt1.setText("و بناء فكرهم ليستنير بموكبة التطور العلمى و الثقافى و تنشئتهم تنشئه صالحه");
-                    txt2.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
-                    txt3.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
-                    txt4.setText("الحمد الله خلق الانسان و علمه البيان جاعل العقل نعم و الفكر موهبة و اثنى على النبى محمد خير الدعاه و المعلمين");
-                    txt5.setText("من هذا الصرح العلمى الشامخ ستكون انطلاقتنا بمشيئة الله لترسيخ مبادئ الدين الاسلامى فى نفوس ابنائنا");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.ahdafna).into(titlepic);
-                    titletext.setText("اهدافنا");
-                }else
-                {
-                    txt1.setText("To Provide outstanding educational services based on international standards through:");
-                    txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-                    txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
-                    txt4.setText("To Provide outstanding educational services based on international standards through:");
-                    txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.ahdafnaen).into(titlepic);
-                    titletext.setText("Goals");
-                }
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(titlepicmain);
+                d();
 
             }
         });
@@ -370,45 +246,7 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
             @Override
             public void onClick(View v) {
 
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
-                Glide.with(getApplicationContext()).load(R.drawable.aboutpic22).into(e);
-
-                text.setVisibility(View.VISIBLE);
-                map.setVisibility(View.GONE);
-                social.setVisibility(View.GONE);
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(text);
-
-                if(language==1)
-                {
-                    txt1.setText("الاهتمام بجميع نواحى النمو للطالب فكريا و سلوكيا و نفسيا و صحيا لممارسة ما يتعلمه فى الحياة العملية");
-                    txt2.setText("التحسين المستمر لكفايات العاملين و مهاراتهم بتطبيق احدث ما توصلت له النظريات الحديثة");
-                    txt3.setText("التحثين المستمر للبيئة التعليمية بما يتوافق مع متطلبات العصر");
-                    txt4.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
-                    txt5.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.rsaelna).into(titlepic);
-                    titletext.setText("رسالتنا");
-                }else
-                {
-                    txt1.setText("To Provide outstanding educational services based on international standards through:");
-                    txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-                    txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
-                    txt4.setText("To Provide outstanding educational services based on international standards through:");
-                    txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
-
-                    //Glide.with(getApplicationContext()).load(R.drawable.rsaelnaen).into(titlepic);
-                    titletext.setText("Message");
-                }
-
-                YoYo.with(Techniques.BounceIn)
-                        .duration(1350)
-                        .playOn(titlepicmain);
+                e();
 
             }
         });
@@ -445,6 +283,256 @@ public class AboutSchoolActivity extends Activity implements BaseSliderView.OnSl
 
 
     }
+
+    public void a()
+    {
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic12).into(a);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
+
+        map.setVisibility(View.VISIBLE);
+        text.setVisibility(View.GONE);
+        social.setVisibility(View.GONE);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(map);
+
+        if(language==1)
+        {
+            //Glide.with(getApplicationContext()).load(R.drawable.mawkeena).into(titlepic);
+            titletext.setText("موقعنا");
+        }else
+        {
+            //Glide.with(getApplicationContext()).load(R.drawable.mawkeenaen).into(titlepic);
+            titletext.setText("Location");
+        }
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(titlepicmain);
+    }
+
+    public void b()
+    {
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic52).into(b);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
+
+        text.setVisibility(View.GONE);
+        map.setVisibility(View.GONE);
+        social.setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(social);
+
+        if(language==1)
+        {
+            social.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            //Glide.with(getApplicationContext()).load(R.drawable.tabeena).into(titlepic);
+            titletext.setText("تابعنا");
+        }else
+        {
+            social.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            //Glide.with(getApplicationContext()).load(R.drawable.tabeenaen).into(titlepic);
+            titletext.setText("Follow");
+        }
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(titlepicmain);
+    }
+
+    public void c()
+    {
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic32).into(c);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
+
+        text.setVisibility(View.VISIBLE);
+        map.setVisibility(View.GONE);
+        social.setVisibility(View.GONE);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(text);
+
+        if(language==1)
+        {
+            txt1.setText("الحمد الله خلق الانسان و علمه البيان جاعل العقل نعم و الفكر موهبة و اثنى على النبى محمد خير الدعاه و المعلمين");
+            txt2.setText("من هذا الصرح العلمى الشامخ ستكون انطلاقتنا بمشيئة الله لترسيخ مبادئ الدين الاسلامى فى نفوس ابنائنا");
+            txt3.setText("و بناء فكرهم ليستنير بموكبة التطور العلمى و الثقافى و تنشئتهم تنشئه صالحه");
+            txt4.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
+            txt5.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.manger).into(titlepic);
+            titletext.setText("كلمة مدير المدرسة");
+        }else
+        {
+            txt1.setText("To Provide outstanding educational services based on international standards through:");
+            txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+            txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
+            txt4.setText("To Provide outstanding educational services based on international standards through:");
+            txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.mangeren).into(titlepic);
+            titletext.setText("School Manger");
+        }
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(titlepicmain);
+    }
+
+    public void d()
+    {
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic42).into(d);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic2).into(e);
+
+        text.setVisibility(View.VISIBLE);
+        map.setVisibility(View.GONE);
+        social.setVisibility(View.GONE);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(text);
+
+        if(language==1)
+        {
+            txt1.setText("و بناء فكرهم ليستنير بموكبة التطور العلمى و الثقافى و تنشئتهم تنشئه صالحه");
+            txt2.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
+            txt3.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
+            txt4.setText("الحمد الله خلق الانسان و علمه البيان جاعل العقل نعم و الفكر موهبة و اثنى على النبى محمد خير الدعاه و المعلمين");
+            txt5.setText("من هذا الصرح العلمى الشامخ ستكون انطلاقتنا بمشيئة الله لترسيخ مبادئ الدين الاسلامى فى نفوس ابنائنا");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.ahdafna).into(titlepic);
+            titletext.setText("اهدافنا");
+        }else
+        {
+            txt1.setText("To Provide outstanding educational services based on international standards through:");
+            txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+            txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
+            txt4.setText("To Provide outstanding educational services based on international standards through:");
+            txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.ahdafnaen).into(titlepic);
+            titletext.setText("Goals");
+        }
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(titlepicmain);
+    }
+
+    public void e()
+    {
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic1).into(a);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic5).into(b);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic3).into(c);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic4).into(d);
+        Glide.with(getApplicationContext()).load(R.drawable.aboutpic22).into(e);
+
+        text.setVisibility(View.VISIBLE);
+        map.setVisibility(View.GONE);
+        social.setVisibility(View.GONE);
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(text);
+
+        if(language==1)
+        {
+            txt1.setText("الاهتمام بجميع نواحى النمو للطالب فكريا و سلوكيا و نفسيا و صحيا لممارسة ما يتعلمه فى الحياة العملية");
+            txt2.setText("التحسين المستمر لكفايات العاملين و مهاراتهم بتطبيق احدث ما توصلت له النظريات الحديثة");
+            txt3.setText("التحثين المستمر للبيئة التعليمية بما يتوافق مع متطلبات العصر");
+            txt4.setText("و هذا و نسال الله العلى القدير ان يسدد خطانا الى مافيه الخير لابنائنا و خدمة الوطن");
+            txt5.setText("نسعى الى تكوين عقول متطورة قادرة على ريادة المحاضر و المستقبل");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.rsaelna).into(titlepic);
+            titletext.setText("رسالتنا");
+        }else
+        {
+            txt1.setText("To Provide outstanding educational services based on international standards through:");
+            txt2.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+            txt3.setText("Giving due attentions to gifted and talented students to maximize tier achievements");
+            txt4.setText("To Provide outstanding educational services based on international standards through:");
+            txt5.setText("Paying attentions to all aspects of studying growth behavioral psychological and physical");
+
+            //Glide.with(getApplicationContext()).load(R.drawable.rsaelnaen).into(titlepic);
+            titletext.setText("Message");
+        }
+
+        YoYo.with(Techniques.BounceIn)
+                .duration(1350)
+                .playOn(titlepicmain);
+    }
+
+    public void some()
+    {
+        Timer timer = new Timer();
+        hourTask = new TimerTask() {
+            @Override
+            public void run() {
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        switch (titletext.getText().toString())
+                        {
+                            case "رسالتنا":
+                                a();
+                                break;
+                            case "اهدافنا":
+                                b();
+                                break;
+                            case "كلمة مدير المدرسة":
+                                c();
+                                break;
+                            case "تابعنا":
+                                d();
+                                break;
+                            case "موقعنا":
+                                e();
+                                break;
+                            case "Message":
+                                a();
+                                break;
+                            case "Goals":
+                                b();
+                                break;
+                            case "School Manger":
+                                c();
+                                break;
+                            case "Follow":
+                                d();
+                                break;
+                            case "Location":
+                                e();
+                                break;
+                        }
+
+
+                    }
+                });
+
+
+            }
+        };
+        timer.schedule(hourTask, 0L, 1000 * 3);
+    }
+
 
     @Override
     protected void onDestroy() {

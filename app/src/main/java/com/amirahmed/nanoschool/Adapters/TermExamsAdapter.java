@@ -4,6 +4,7 @@ package com.amirahmed.nanoschool.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class TermExamsAdapter extends RecyclerView.Adapter<TermExamsAdapter.TermExamsViewHolder> {
 
-    List<TermItem> termItemList;
+    private List<TermItem> termItemList;
 
     TinyDB tinyDB;
 
@@ -35,8 +36,9 @@ public class TermExamsAdapter extends RecyclerView.Adapter<TermExamsAdapter.Term
         this.termItemList = termItemList;
     }
 
+    @NonNull
     @Override
-    public TermExamsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TermExamsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
 
         tinyDB = new TinyDB(context);
@@ -54,12 +56,11 @@ public class TermExamsAdapter extends RecyclerView.Adapter<TermExamsAdapter.Term
             }
 
 
-        TermExamsViewHolder eh = new TermExamsViewHolder(view);
-        return eh;
+        return new TermExamsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TermExamsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TermExamsViewHolder holder, int position) {
         switch (termItemList.get(position).subject)
         {
             case 0:
@@ -92,13 +93,13 @@ public class TermExamsAdapter extends RecyclerView.Adapter<TermExamsAdapter.Term
         return termItemList.size();
     }
 
-    public class TermExamsViewHolder extends RecyclerView.ViewHolder {
+    class TermExamsViewHolder extends RecyclerView.ViewHolder {
 
         ImageView exampic;
         TextView examname;
         Button buttonresults,buttontimes;
 
-        public TermExamsViewHolder(View itemView) {
+        TermExamsViewHolder(View itemView) {
             super(itemView);
             exampic = itemView.findViewById(R.id.exampic);
             examname = itemView.findViewById(R.id.examname);

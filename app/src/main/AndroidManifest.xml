@@ -144,6 +144,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.ReplayActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.VisitorActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

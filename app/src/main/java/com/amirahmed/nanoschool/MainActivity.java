@@ -1,9 +1,11 @@
 package com.amirahmed.nanoschool;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import com.amirahmed.nanoschool.Activities.ExamsActivity;
 import com.amirahmed.nanoschool.Activities.GalleryActivity;
 import com.amirahmed.nanoschool.Activities.HelpActivity;
 import com.amirahmed.nanoschool.Activities.InboxActivity;
+import com.amirahmed.nanoschool.Activities.LoginActivity;
 import com.amirahmed.nanoschool.Activities.MapsActivity;
 import com.amirahmed.nanoschool.Activities.MessagesActivity;
 import com.amirahmed.nanoschool.Activities.MyProfileActivity;
@@ -337,6 +340,26 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
         {
             Intent intent = new Intent(MainActivity.this , SettingActivity.class);
             startActivity(intent);
+        }else if(position==7)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            if(language==1)
+            {
+                builder.setMessage("هل حقا تريد تسجيل الخروج ؟");
+            }else
+            {
+                builder.setMessage("Are You Sure You Want to Logout ?");
+            }
+
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(MainActivity.this , LoginActivity.class );
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("No",null);
+            builder.show();
         }
     }
 
@@ -349,8 +372,12 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
     public void onBackPressed() {
         if (mNavigationDrawerFragment.isDrawerOpen())
             mNavigationDrawerFragment.closeDrawer();
-        else
-            this.finishAffinity();
+        else {
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
+        }
     }
 
 

@@ -24,6 +24,8 @@ public class ScoresSelectAdapter extends RecyclerView.Adapter<ScoresSelectAdapte
     TinyDB tinydb;
     public int language = 1;
 
+
+
     public ScoresSelectAdapter(List<ScoresSelectItem> scoresSelectItems){
 
         this.scoresSelectItems = scoresSelectItems;
