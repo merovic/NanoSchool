@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/toolbar_actionbar_en"
+        layout="@layout/toolbar_default_en"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/send"
+            android:background="@drawable/whatsapp"/>
+
+        <LinearLayout
+            android:id="@+id/send"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edittext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:hint="Enter your Message..."
+                android:background="@drawable/rounded_grayempty"
+                android:layout_weight="1"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/sendbutton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:padding="5dp"
+                android:background="@color/myPrimaryDarkColor"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_send_white_24dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

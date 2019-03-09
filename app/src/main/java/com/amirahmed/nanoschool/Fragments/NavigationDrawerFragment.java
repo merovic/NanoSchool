@@ -165,9 +165,12 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             items.add(new NavigationItem("التقويم الدراسى", getResources().getDrawable(R.drawable.calendarmenu)));
             items.add(new NavigationItem("الساعة الذكية", getResources().getDrawable(R.drawable.watch)));
             items.add(new NavigationItem("معرض الصور", getResources().getDrawable(R.drawable.gallery2)));
+            items.add(new NavigationItem("غرفة المحادثة", getResources().getDrawable(R.drawable.chat)));
             items.add(new NavigationItem("المساعدة", getResources().getDrawable(R.drawable.help)));
             items.add(new NavigationItem("عن التطبيق", getResources().getDrawable(R.drawable.about)));
             items.add(new NavigationItem("الاعدادات", getResources().getDrawable(R.drawable.setting)));
+            items.add(new NavigationItem("قيمنا", getResources().getDrawable(R.drawable.rate)));
+            items.add(new NavigationItem("مشاركة التطبيق", getResources().getDrawable(R.drawable.sharenew)));
             items.add(new NavigationItem("تسجيل الخروج", getResources().getDrawable(R.drawable.logout)));
         }else
             {
@@ -175,9 +178,12 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 items.add(new NavigationItem("Calendar", getResources().getDrawable(R.drawable.calendarmenu)));
                 items.add(new NavigationItem("Smart Watch", getResources().getDrawable(R.drawable.watch)));
                 items.add(new NavigationItem("Gallery", getResources().getDrawable(R.drawable.gallery2)));
+                items.add(new NavigationItem("Chat Room", getResources().getDrawable(R.drawable.chat)));
                 items.add(new NavigationItem("Help", getResources().getDrawable(R.drawable.help)));
                 items.add(new NavigationItem("About", getResources().getDrawable(R.drawable.about)));
                 items.add(new NavigationItem("Setting", getResources().getDrawable(R.drawable.setting)));
+                items.add(new NavigationItem("Rate Us", getResources().getDrawable(R.drawable.rate)));
+                items.add(new NavigationItem("Share Application", getResources().getDrawable(R.drawable.sharenew)));
                 items.add(new NavigationItem("Logout", getResources().getDrawable(R.drawable.logout)));
             }
 

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        android:id="@+id/toolbar_actionbar_en"
+        layout="@layout/toolbar_default_en"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/eschoola"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp">
+
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/abouttext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="المؤسسة التعليميّة هي عبارة عن مكان أو موقع يتم فيه التقاء فئات مجتمعيّة مختلفة الأعمار، ويتم فيها تعليمهم وتزويدهم بالكثير من المعلومات المختلفة حسب نوع هذه المؤسسة التعليميّة، وتتكون هذه المؤسسة التعليميّة من أعضاء الهيئة التدريسيّة أو المعلمون، والطلاب، وأولياء الأمور، والهيئات الإداريّة فيها، ويقوم الطلاب بالبقاء في هذه المؤسسة لتلقي العلم لفترات زمنيّة معيّنة، تعتمد هذه الفترة أيضاً على نوع المؤسسة التعليميّة، فهناك العديد من أنواع المؤسسات التعليميّة مثل رياض الأطفال، والمدارس، والمعاهد، والكليات، والجامعات "
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"/>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/followlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/sharesocial"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/followtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="تابعنا "/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginLeft="35dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/facebooksocial"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/instasocial"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/twittersocial"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/youtubesocial"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/linkedinsocial"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

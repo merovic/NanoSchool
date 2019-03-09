@@ -13,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
+import com.amirahmed.nanoschool.Activities.GuestLogin.VisitorActivity;
 import com.amirahmed.nanoschool.MainActivity;
 import com.amirahmed.nanoschool.R;
 import com.amirahmed.nanoschool.Utils.TinyDB;
@@ -28,6 +30,8 @@ public class SettingActivity extends AppCompatActivity {
     RadioButton selectedlanguage,arabic,english;
 
     Button submitbutton;
+
+    Switch notifications;
 
     TextView languagetitle;
 
@@ -70,8 +74,16 @@ public class SettingActivity extends AppCompatActivity {
             arrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(SettingActivity.this , MainActivity.class);
-                    startActivity(intent);
+
+                    if(tinyDB.getString("Setting").equals("Guest"))
+                    {
+                        Intent intent = new Intent(SettingActivity.this , VisitorActivity.class);
+                        startActivity(intent);
+                    }else
+                    {
+                        Intent intent = new Intent(SettingActivity.this , MainActivity.class);
+                        startActivity(intent);
+                    }
                 }
             });
 
@@ -91,8 +103,15 @@ public class SettingActivity extends AppCompatActivity {
             arrowen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(SettingActivity.this , MainActivity.class);
-                    startActivity(intent);
+                    if(tinyDB.getString("Setting").equals("Guest"))
+                    {
+                        Intent intent = new Intent(SettingActivity.this , VisitorActivity.class);
+                        startActivity(intent);
+                    }else
+                    {
+                        Intent intent = new Intent(SettingActivity.this , MainActivity.class);
+                        startActivity(intent);
+                    }
                 }
             });
 
@@ -106,8 +125,12 @@ public class SettingActivity extends AppCompatActivity {
 
         languagesgroup = findViewById(R.id.languagesgroup);
 
+        notifications = findViewById(R.id.notifications);
+
         arabic = findViewById(R.id.arabic);
         english = findViewById(R.id.english);
+
+        notifications.isEnabled();
 
         if(language==1)
         {
@@ -216,8 +239,18 @@ public class SettingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(SettingActivity.this , MainActivity.class);
-        startActivity(intent);
+
+        if(tinyDB.getString("Setting").equals("Guest"))
+        {
+            Intent intent = new Intent(SettingActivity.this , VisitorActivity.class);
+            startActivity(intent);
+        }else
+            {
+                Intent intent = new Intent(SettingActivity.this , MainActivity.class);
+                startActivity(intent);
+            }
+
+
     }
 
     private TextView getActionBarTextView() {

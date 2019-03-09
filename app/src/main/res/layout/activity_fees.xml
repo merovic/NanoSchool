@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        android:id="@+id/toolbar_actionbar_en"
+        layout="@layout/toolbar_default_en"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:id="@+id/containerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/schoollogo2"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                    android:id="@+id/schoolname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_marginBottom="5dp"
+                    android:text="مدرسة العلم العالمية"/>
+
+                <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                    android:id="@+id/schoollevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="دولية | جميع المراحل"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/male"/>
+
+                    <ImageView
+                        android:id="@+id/female"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/female"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sunny"/>
+
+                    <ImageView
+                        android:id="@+id/moon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/moon"/>
+
+                    <ImageView
+                        android:id="@+id/certificate"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/wasc"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <com.athbk.ultimatetablayout.UltimateTabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/myDrawerBackground"
+        app:tab_orientation="horizontal"
+        app:tab_style="sliding"
+        app:tab_position_icon="icon_left"
+        app:tab_under_line_color="@color/myPrimaryColor"
+        app:tab_text_size="10"
+        app:tab_height_under_line="2dp"
+        app:tab_resource_font="fonts/DroidArabicKufi.ttf"
+        app:tab_width="100dp"
+        app:tab_height="50dp"
+        app:tab_badge="number"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

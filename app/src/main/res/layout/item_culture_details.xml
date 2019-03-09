@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_grayempty"
+    android:layout_margin="5dp"
+    android:layoutDirection="rtl"
+    android:id="@+id/titlelayout">
+
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="المشاركة فى اليوم العالمى للطفل"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:textStyle="bold"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اكتوبر ٢٠١٤"
+                android:textSize="12sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textColor="@color/colorAccent"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل  المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل  المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل  المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل  المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل المشاركة فى اليوم العالمى للطفل"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:maxLines="4"
+                android:textSize="12sp"
+                android:textColor="#717171"
+                android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

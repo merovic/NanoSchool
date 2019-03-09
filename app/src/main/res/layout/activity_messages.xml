@@ -54,7 +54,8 @@
         <EditText
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/roundedgray"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -73,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundedgray"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:hint="ارفاق ملف ان وجد"

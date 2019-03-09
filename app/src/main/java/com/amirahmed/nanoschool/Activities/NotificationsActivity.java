@@ -108,18 +108,18 @@ public class NotificationsActivity extends AppCompatActivity {
         notificationsItems = new ArrayList<>();
         if(language==1)
         {
-            notificationsItems.add(new NotificationItem("تنبيه هام","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
-            notificationsItems.add(new NotificationItem("تنبيه هام","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
-            notificationsItems.add(new NotificationItem("تنبيه هام","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
-            notificationsItems.add(new NotificationItem("تنبيه هام","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
-            notificationsItems.add(new NotificationItem("تنبيه هام","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
+            notificationsItems.add(new NotificationItem("تنبيه هام غياب","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
+            notificationsItems.add(new NotificationItem("تنبيه هام اجتماع","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
+            notificationsItems.add(new NotificationItem("تنبيه هام غياب","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
+            notificationsItems.add(new NotificationItem("تنبيه هام اجتماع","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
+            notificationsItems.add(new NotificationItem("تنبيه هام غياب","سوف يتم انعقاد اجتماع مجلس الاباء غا الساعة الخامسة عصرا و برجاء عدم التأخير "));
         }else
         {
-            notificationsItems.add(new NotificationItem("Important Alert","Parents supreme will be held tomorrow 5pm so please come in time"));
-            notificationsItems.add(new NotificationItem("Important Alert","Parents supreme will be held tomorrow 5pm so please come in time"));
-            notificationsItems.add(new NotificationItem("Important Alert","Parents supreme will be held tomorrow 5pm so please come in time"));
-            notificationsItems.add(new NotificationItem("Important Alert","Parents supreme will be held tomorrow 5pm so please come in time"));
-            notificationsItems.add(new NotificationItem("Important Alert","Parents supreme will be held tomorrow 5pm so please come in time"));
+            notificationsItems.add(new NotificationItem("Important Alert Attendance","Parents supreme will be held tomorrow 5pm so please come in time"));
+            notificationsItems.add(new NotificationItem("Important Alert Meeting","Parents supreme will be held tomorrow 5pm so please come in time"));
+            notificationsItems.add(new NotificationItem("Important Alert Attendance","Parents supreme will be held tomorrow 5pm so please come in time"));
+            notificationsItems.add(new NotificationItem("Important Alert Meeting","Parents supreme will be held tomorrow 5pm so please come in time"));
+            notificationsItems.add(new NotificationItem("Important Alert Attendance","Parents supreme will be held tomorrow 5pm so please come in time"));
         }
 
 

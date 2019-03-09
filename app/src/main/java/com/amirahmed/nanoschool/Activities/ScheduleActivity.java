@@ -370,10 +370,10 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
 
         if(language==1)
         {
-            schedule.add(new ScheduleItem("الحصة\n الاولى", "لغة عربية","فصل موز","من: ٠٨:٠٠","الى: ٠٨:٤٥"));
-            schedule.add(new ScheduleItem("الحصة\n الثانية", "لغة عربية","فصل موز","من: ٠٨:٠٠","الى: ٠٨:٤٥"));
-            schedule.add(new ScheduleItem("الحصة\n الثالثة", "لغة عربية","فصل موز","من: ٠٨:٠٠","الى: ٠٨:٤٥"));
-            schedule.add(new ScheduleItem("الحصة\n الرابعة", "لغة عربية","فصل موز","من: ٠٨:٠٠","الى: ٠٨:٤٥"));
+            schedule.add(new ScheduleItem("الحصة\n الاولى", "لغة عربية","فصل موز","من: ٨ص","الى: ٠٨:٤٥ص"));
+            schedule.add(new ScheduleItem("الحصة\n الثانية", "لغة عربية","فصل موز","من: ٨ص","الى: ٠٨:٤٥ص"));
+            schedule.add(new ScheduleItem("الحصة\n الثالثة", "لغة عربية","فصل موز","من: ٨ص","الى: ٠٨:٤٥ص"));
+            schedule.add(new ScheduleItem("الحصة\n الرابعة", "لغة عربية","فصل موز","من: ٨ص","الى: ٠٨:٤٥ص"));
         }else
             {
                 schedule.add(new ScheduleItem("1st\n Class", "Arabic","Class Banana","from: 08:00","To: 08:45"));

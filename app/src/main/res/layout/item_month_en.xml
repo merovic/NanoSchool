@@ -82,18 +82,19 @@
 
                             <com.amirahmed.nanoschool.Utils.TextViewWithFont
                                 android:id="@+id/subjectName"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:textStyle="bold"
                                 android:layout_weight="1"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:text="Arabic Language"/>
 
                             <com.amirahmed.nanoschool.Utils.TextViewWithFont
                                 android:id="@+id/teacherName"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textSize="13sp"
                                 android:text="Mr/Mohamed Ebrahim"/>
 
                         </LinearLayout>
@@ -102,6 +103,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#F9F9F9"
+                            android:layout_marginEnd="2dp"
                             android:orientation="horizontal">
 
                             <ImageView

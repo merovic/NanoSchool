@@ -4,6 +4,7 @@ package com.amirahmed.nanoschool.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +57,7 @@ public class MonthExamsAdapter extends RecyclerView.Adapter<MonthExamsAdapter.Mo
     }
 
     @Override
-    public void onBindViewHolder(MonthExamsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MonthExamsViewHolder holder, int position) {
         holder.date1.setText(monthItemList.get(position).examDate1);
         holder.date2.setText(monthItemList.get(position).examDate2);
         holder.subjectName.setText(monthItemList.get(position).exam);
@@ -66,7 +67,7 @@ public class MonthExamsAdapter extends RecyclerView.Adapter<MonthExamsAdapter.Mo
 
         if(position==2)
         {
-            holder.box.setBackgroundColor(Color.RED);
+            holder.box.setBackgroundColor(Color.parseColor("#ff3333"));
         }
 
     }

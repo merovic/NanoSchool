@@ -2,6 +2,7 @@ package com.amirahmed.nanoschool.Adapters;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,8 +44,9 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         mNavigationDrawerCallbacks = navigationDrawerCallbacks;
     }
 
+    @NonNull
     @Override
-    public NavigationDrawerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public NavigationDrawerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         context = viewGroup.getContext();
         tinyDB = new TinyDB(context);
@@ -77,7 +79,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     }
 
     @Override
-    public void onBindViewHolder(NavigationDrawerAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull NavigationDrawerAdapter.ViewHolder viewHolder, int i) {
         viewHolder.textView.setText(mData.get(i).getText());
         tinyDB = new TinyDB(context);
         language = tinyDB.getInt("language");   //left-top-right-bottom

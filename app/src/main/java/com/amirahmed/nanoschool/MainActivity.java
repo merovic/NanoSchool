@@ -12,13 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amirahmed.nanoschool.Activities.AboutApplicationActivity;
 import com.amirahmed.nanoschool.Activities.AboutSchoolActivity;
 import com.amirahmed.nanoschool.Activities.AttendanceActivity;
 import com.amirahmed.nanoschool.Activities.CallingActivity;
+import com.amirahmed.nanoschool.Activities.ChatRoomActivity;
 import com.amirahmed.nanoschool.Activities.ExamsActivity;
 import com.amirahmed.nanoschool.Activities.GalleryActivity;
 import com.amirahmed.nanoschool.Activities.HelpActivity;
@@ -27,6 +28,7 @@ import com.amirahmed.nanoschool.Activities.LoginActivity;
 import com.amirahmed.nanoschool.Activities.MapsActivity;
 import com.amirahmed.nanoschool.Activities.MessagesActivity;
 import com.amirahmed.nanoschool.Activities.MyProfileActivity;
+import com.amirahmed.nanoschool.Activities.NewAboutApplicationActivity;
 import com.amirahmed.nanoschool.Activities.NotificationsActivity;
 import com.amirahmed.nanoschool.Activities.PlanActivity;
 import com.amirahmed.nanoschool.Activities.RequestsActivity;
@@ -38,6 +40,7 @@ import com.amirahmed.nanoschool.Activities.WatchSyncActivity;
 import com.amirahmed.nanoschool.Fragments.NavigationDrawerFragment;
 import com.amirahmed.nanoschool.Utils.NavigationDrawerCallbacks;
 import com.amirahmed.nanoschool.Utils.TinyDB;
+import com.codemybrainsout.ratingdialog.RatingDialog;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -111,6 +114,8 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
 
         mToolbar = findViewById(R.id.toolbar_actionbar);
         mToolbar2 = findViewById(R.id.toolbar_actionbar_en);
+
+
         if(language==1)
         {
             mToolbar.setVisibility(View.VISIBLE);
@@ -130,6 +135,11 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
             textView8.setText("الرسائل");
             textView9.setText("طلبات ولى الامر");
 
+            SearchView searchView = mToolbar.findViewById(R.id.searchView);
+            ImageView filter = mToolbar.findViewById(R.id.filter);
+
+            searchView.setVisibility(View.INVISIBLE);
+            filter.setVisibility(View.INVISIBLE);
 
 
         }else
@@ -151,8 +161,11 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
             textView8.setText("Messages");
             textView9.setText("Requests");
 
+            SearchView searchView = mToolbar2.findViewById(R.id.searchView);
+            ImageView filter = mToolbar2.findViewById(R.id.filter);
 
-
+            searchView.setVisibility(View.INVISIBLE);
+            filter.setVisibility(View.INVISIBLE);
         }
 
         planlayout.setOnClickListener(new View.OnClickListener() {
@@ -330,17 +343,30 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
             startActivity(intent);
         }else if (position==4)
         {
-            Intent intent = new Intent(MainActivity.this , HelpActivity.class);
+            Intent intent = new Intent(MainActivity.this , ChatRoomActivity.class);
             startActivity(intent);
         }else if (position==5)
         {
-            Intent intent = new Intent(MainActivity.this , AboutApplicationActivity.class);
+            Intent intent = new Intent(MainActivity.this , HelpActivity.class);
             startActivity(intent);
         }else if (position==6)
         {
+            Intent intent = new Intent(MainActivity.this , NewAboutApplicationActivity.class);
+            startActivity(intent);
+        }else if (position==7)
+        {
             Intent intent = new Intent(MainActivity.this , SettingActivity.class);
             startActivity(intent);
-        }else if(position==7)
+        }else if (position==8)
+        {
+            rateApp();
+        }else if (position==9)
+        {
+            Intent intent2 = new Intent(); intent2.setAction(Intent.ACTION_SEND);
+            intent2.setType("text/plain");
+            intent2.putExtra(Intent.EXTRA_TEXT, "Share App Link");
+            startActivity(Intent.createChooser(intent2, "Share via"));
+        }else if(position==10)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             if(language==1)
@@ -354,6 +380,7 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    tinyDB.putString("username","");
                     Intent intent = new Intent(MainActivity.this , LoginActivity.class );
                     startActivity(intent);
                 }
@@ -367,6 +394,103 @@ public class MainActivity extends Activity implements NavigationDrawerCallbacks,
         Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_SHORT).show();
     }
 
+    public void rateApp()
+    {
+        if(language==1)
+        {
+            final RatingDialog ratingDialog = new RatingDialog.Builder(this)
+                    .icon(getDrawable(R.drawable.stars))
+                    .threshold(3)
+                    .title("كيف هى تجربتك معنا ؟")
+                    .titleTextColor(R.color.black)
+                    .positiveButtonText("ليس الأن")
+                    .negativeButtonText("أبدا")
+                    .positiveButtonTextColor(R.color.myPrimaryColor)
+                    .negativeButtonTextColor(R.color.myPrimaryColor)
+                    .formTitle("أرسل رأيك")
+                    .formHint("أخبرنا كيف نقوم بتحسين خدماتنا")
+                    .formSubmitText("حفظ")
+                    .formCancelText("ألغاء")
+                    .ratingBarColor(R.color.myPrimaryColor)
+                    .playstoreUrl("")
+                    .onThresholdCleared(new RatingDialog.Builder.RatingThresholdClearedListener() {
+                        @Override
+                        public void onThresholdCleared(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+                            //do something
+                            ratingDialog.dismiss();
+                        }
+                    })
+                    .onThresholdFailed(new RatingDialog.Builder.RatingThresholdFailedListener() {
+                        @Override
+                        public void onThresholdFailed(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+                            //do something
+                            ratingDialog.dismiss();
+                        }
+                    })
+                    .onRatingChanged(new RatingDialog.Builder.RatingDialogListener() {
+                        @Override
+                        public void onRatingSelected(float rating, boolean thresholdCleared) {
+
+                        }
+                    })
+                    .onRatingBarFormSumbit(new RatingDialog.Builder.RatingDialogFormListener() {
+                        @Override
+                        public void onFormSubmitted(String feedback) {
+
+                        }
+                    }).build();
+
+            ratingDialog.show();
+        }else
+        {
+            final RatingDialog ratingDialog = new RatingDialog.Builder(this)
+                    .icon(getDrawable(R.drawable.stars))
+                    .threshold(3)
+                    .title("How was your experience with us?")
+                    .titleTextColor(R.color.black)
+                    .positiveButtonText("Not Now")
+                    .negativeButtonText("Never")
+                    .positiveButtonTextColor(R.color.myPrimaryColor)
+                    .negativeButtonTextColor(R.color.myPrimaryColor)
+                    .formTitle("Submit Feedback")
+                    .formHint("Tell us where we can improve")
+                    .formSubmitText("Submit")
+                    .formCancelText("Cancel")
+                    .ratingBarColor(R.color.myPrimaryColor)
+                    .playstoreUrl("")
+                    .onThresholdCleared(new RatingDialog.Builder.RatingThresholdClearedListener() {
+                        @Override
+                        public void onThresholdCleared(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+                            //do something
+                            ratingDialog.dismiss();
+                        }
+                    })
+                    .onThresholdFailed(new RatingDialog.Builder.RatingThresholdFailedListener() {
+                        @Override
+                        public void onThresholdFailed(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+                            //do something
+                            ratingDialog.dismiss();
+                        }
+                    })
+                    .onRatingChanged(new RatingDialog.Builder.RatingDialogListener() {
+                        @Override
+                        public void onRatingSelected(float rating, boolean thresholdCleared) {
+
+                        }
+                    })
+                    .onRatingBarFormSumbit(new RatingDialog.Builder.RatingDialogFormListener() {
+                        @Override
+                        public void onFormSubmitted(String feedback) {
+
+                        }
+                    }).build();
+
+            ratingDialog.show();
+        }
+
+
+
+    }
 
     @Override
     public void onBackPressed() {

@@ -7,14 +7,47 @@
     android:layoutDirection="rtl"
     android:minHeight="@dimen/abc_action_bar_default_height_material">
 
-    <com.amirahmed.nanoschool.Utils.TextViewWithFont
-        android:id="@+id/toolbartext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="الرئيسية"
-        android:textColor="#FFF"
-        android:layout_marginRight="5dp"
-        android:textSize="22sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/toolbartext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="الرئيسية"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="#FFF"
+            android:textSize="22sp"/>
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="true"
+            android:layoutDirection="ltr"
+            android:layout_toRightOf="@+id/filter"
+            android:layout_toLeftOf="@id/toolbartext"
+            android:layout_marginLeft="5dp"
+            android:queryHint="بحث" />
+
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/filter"/>
+
+    </RelativeLayout>
+
+
+
 
 </android.support.v7.widget.Toolbar>

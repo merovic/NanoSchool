@@ -56,7 +56,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
     LinearLayout selection,tab1layout,tab2layout,layout1,layout2,layout11,layout12;
 
-    TextView tab1text,tab2text,textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9;
+    TextView tab1text,tab2text,textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,calendartitle;
 
     View tab1view,tab2view;
 
@@ -124,6 +124,7 @@ public class AttendanceActivity extends AppCompatActivity {
         }
 
 
+        calendartitle = findViewById(R.id.calendartitle);
 
         final CompactCalendarView compactCalendarView = findViewById(R.id.compactcalendar_view);
 
@@ -131,6 +132,7 @@ public class AttendanceActivity extends AppCompatActivity {
         if(language==1)
         {
             month_date = new SimpleDateFormat("MMMM",new Locale("ar"));
+
 
 
 
@@ -227,6 +229,7 @@ public class AttendanceActivity extends AppCompatActivity {
         cd3.showValue((float) y, 10f, true);
 
 
+        calendartitle.setText(month + " " + year);
 
 
         compactCalendarView.setFirstDayOfWeek(Calendar.SATURDAY);
@@ -247,9 +250,6 @@ public class AttendanceActivity extends AppCompatActivity {
         compactCalendarView.setClickable(false);
 
         compactCalendarView.addEvents(events);
-
-
-
 
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
@@ -332,6 +332,192 @@ public class AttendanceActivity extends AppCompatActivity {
 
                 x = 0;
                 y = 0;
+
+
+                //--------
+
+                String damn2;
+
+                eventsMonth = compactCalendarView.getEventsForMonth(firstDayOfNewMonth);
+
+
+                for(int i = 0; i <eventsMonth.size();i++)
+                {
+                    if(eventsMonth.get(i).getColor()==Color.RED)
+                    {
+                        x = x + 1;
+
+                    }else
+                    {
+                        y = y + 1;
+                    }
+                }
+
+                cd.showValue((float) (((10-(x + y))*100))/10, 100f, true);
+                cd2.showValue((float) x, 10f, true);
+                cd3.showValue((float) y, 10f, true);
+
+
+                year = Integer.toString(firstDayOfNewMonth.getYear());
+                String damnn =  year.substring(year.length() - 1);
+                char c = year.charAt(1);
+
+
+
+                if(Character.toString(c).equals("2"))
+                {
+                    damn2 = ("202" + damnn);
+
+                } else
+                {
+                    damn2 = ("201" + damnn);
+                }
+
+                //date2.setText(damn2);
+
+
+
+                switch (firstDayOfNewMonth.getMonth() + 1)
+                {
+                    case 1:
+                        if(language==1)
+                        {
+                            month = "يناير";
+                        }else
+                        {
+                            month = "January";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 2:
+                        if(language==1)
+                        {
+                            month = "فبراير";
+                        }else
+                        {
+                            month = "February";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 3:
+                        if(language==1)
+                        {
+                            month = "مارس";
+                        }else
+                        {
+                            month = "March";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 4:
+                        if(language==1)
+                        {
+                            month = "ابريل";
+                        }else
+                        {
+                            month = "April";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 5:
+                        if(language==1)
+                        {
+                            month = "مايو";
+                        }else
+                        {
+                            month = "May";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 6:
+                        if(language==1)
+                        {
+                            month = "يونيو";
+                        }else
+                        {
+                            month = "June";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 7:
+                        if(language==1)
+                        {
+                            month = "يوليو";
+                        }else
+                        {
+                            month = "July";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 8:
+                        if(language==1)
+                        {
+                            month = "اغسطس";
+                        }else
+                        {
+                            month = "August";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 9:
+                        if(language==1)
+                        {
+                            month = "سبتمبر";
+                        }else
+                        {
+                            month = "September";
+
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 10:
+                        if(language==1)
+                        {
+                            month = "اكتوبر";
+                        }else
+                        {
+                            month = "October";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 11:
+                        if(language==1)
+                        {
+                            month = "نوفمبر";
+                        }else
+                        {
+                            month = "November";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                    case 12:
+                        if(language==1)
+                        {
+                            month = "ديسمبر";
+                        }else
+                        {
+                            month = "December";
+                        }
+
+                        calendartitle.setText(month + " " + damn2);
+                        break;
+                }
+
+                x = 0;
+                y = 0;
+
+                //--------
             }
         });
 

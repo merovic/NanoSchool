@@ -44,20 +44,21 @@ public class TeachersListFragment extends DialogFragment {
 
         if(language==1)
         {
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
-            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم للمرحلة الأبتدائية"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+            teachersListItemList.add(new TeachersListItem("احمد متولى تهامى المنصورى","مدرس العلوم"));
+
         }else
             {
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
-                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher Primary Stage"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
+                teachersListItemList.add(new TeachersListItem("Ahmed Metwally Tohamy","Science Teacher"));
             }
 
 

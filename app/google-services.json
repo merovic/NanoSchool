@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "418131044444",
+    "firebase_url": "https://nanoschool-787b4.firebaseio.com",
+    "project_id": "nanoschool-787b4",
+    "storage_bucket": "nanoschool-787b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418131044444:android:d231acca6a004d92",
+        "android_client_info": {
+          "package_name": "com.amirahmed.nanoschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418131044444-stgg2ddjok8np6p95dddsiuhrd98tuef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amirahmed.nanoschool",
+            "certificate_hash": "3132b7627cf4b5eee2be6ec076bcf133ca73467e"
+          }
+        },
+        {
+          "client_id": "418131044444-i87l5jrikk1ea0pa85ibgvg9sko01le9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM_-jtHxRfU9URxQeGP4Me6Wj4YWgJOVU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418131044444-i87l5jrikk1ea0pa85ibgvg9sko01le9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,8 +28,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/megaphone"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="قم بالضغط على زر النداء عند وصولك للمدرسة حتى يتم اخراج ابنكم الى باب المدرسة وذلك لضمان أمان الطالب و تفادى وقوفه منفردا فترة طويلة"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="#000"
                 android:layout_margin="16dp"/>
 
@@ -62,10 +62,10 @@
         android:background="@drawable/rounded_fill"
         android:text="ابدا النداء "
         android:textColor="#FFF"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginTop="100dp"
-        android:drawableRight="@drawable/ads"
+        android:layout_marginTop="80dp"
+        android:drawableEnd="@drawable/ads"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:drawablePadding="10dp"/>

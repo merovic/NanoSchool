@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +39,14 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
     List<String> requests = new ArrayList<>();
 
     EditText details;
+
+    LinearLayout tabs,newrequestbutton,requestsbutton;
+
+    ImageView newrequestimage,requestsimage;
+
+    TextView newrequesttext,requeststext;
+
+    View newreguestview,requestsview;
 
     Button sendbutton;
 
@@ -130,6 +139,19 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
         follow = findViewById(R.id.button21);
 
 
+        tabs = findViewById(R.id.tabss);
+
+        newrequestbutton = findViewById(R.id.newrequestbutton);
+        requestsbutton = findViewById(R.id.requestsbutton);
+
+        newrequestimage = findViewById(R.id.newrequestpic);
+        requestsimage = findViewById(R.id.requestsspic);
+
+        newrequesttext = findViewById(R.id.newrequesttext);
+        requeststext = findViewById(R.id.requeststext);
+
+        newreguestview = findViewById(R.id.newrequestview);
+        requestsview = findViewById(R.id.requestsview);
 
 
         details = findViewById(R.id.details);
@@ -137,6 +159,11 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
 
         if(language==1)
         {
+
+            tabs.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            requeststext.setText("طلب جديد");
+            newrequesttext.setText("متابعة الطلبات");
+
             send.setText("طلب جديد");
             follow.setText("متابعة الطلبات");
 
@@ -174,8 +201,13 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
 
         }else
             {
-                send.setText("Requests Following");
-                follow.setText("New Request");
+
+                tabs.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                requeststext.setText("Follow Requests");
+                newrequesttext.setText("New Request");
+
+                send.setText("New Request");
+                follow.setText("Requests Following");
 
                 send.setChecked(false);
                 follow.setChecked(true);
@@ -212,8 +244,6 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
             }
 
 
-
-
         sp = findViewById(R.id.requests);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(RequestsActivity.this, android.R.layout.simple_spinner_item, requests);
@@ -232,6 +262,17 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
 
         initializeData();
         initializeAdapter();
+
+        sendinglayout.setVisibility(View.VISIBLE);
+        newrequesttext.setTextColor(getResources().getColor(R.color.colorAccent));
+        newrequestimage.setImageDrawable(getResources().getDrawable(R.drawable.plus2));
+        newreguestview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 5));
+
+
+        rv2.setVisibility(View.GONE);
+        requeststext.setTextColor(getResources().getColor(R.color.black_p50));
+        requestsimage.setImageDrawable(getResources().getDrawable(R.drawable.listt));
+        requestsview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
 
 
         sendbutton.setOnClickListener(new View.OnClickListener() {
@@ -263,6 +304,50 @@ public class RequestsActivity extends AppCompatActivity implements AdapterView.O
 
                 sp.setSelection(0);
                 details.setText("");
+
+            }
+        });
+
+
+        newrequestbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(sendinglayout.getVisibility()==View.GONE)
+                {
+                    sendinglayout.setVisibility(View.VISIBLE);
+                    newrequesttext.setTextColor(getResources().getColor(R.color.colorAccent));
+                    newrequestimage.setImageDrawable(getResources().getDrawable(R.drawable.plus2));
+                    newreguestview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 5));
+
+
+                    rv2.setVisibility(View.GONE);
+                    requeststext.setTextColor(getResources().getColor(R.color.black_p50));
+                    requestsimage.setImageDrawable(getResources().getDrawable(R.drawable.listt));
+                    requestsview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
+                }
+
+            }
+        });
+
+        requestsbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(rv2.getVisibility()==View.GONE)
+                {
+                    rv2.setVisibility(View.VISIBLE);
+                    requeststext.setTextColor(getResources().getColor(R.color.colorAccent));
+                    requestsimage.setImageDrawable(getResources().getDrawable(R.drawable.list2));
+                    requestsview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 5));
+
+                    sendinglayout.setVisibility(View.GONE);
+                    newrequesttext.setTextColor(getResources().getColor(R.color.black_p50));
+                    newrequestimage.setImageDrawable(getResources().getDrawable(R.drawable.plus));
+                    newreguestview.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
+
+
+                }
 
             }
         });

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.amirahmed.nanoschool">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.amirahmed.nanoschool">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -20,7 +21,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <meta-data android:name="android.max_aspect" android:value="2.1" />
 
@@ -32,13 +34,9 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".Utils.SplashScreen"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
 
         </activity>
         <activity
@@ -135,16 +133,65 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Activities.LoginActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
 
         <activity android:name=".Activities.IntroActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Activities.SettingActivity"
             android:screenOrientation="portrait"/>
+
         <activity android:name=".Activities.ReplayActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.VisitorActivity"
+
+        <activity android:name=".Activities.GuestLogin.VisitorActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.ChatRoomActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.SchoolDetailsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.ComparisionActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.LocationActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.AboutSchoolActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.FeesActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.SocialMediaActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.DiscountRequestActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.SchoolVisionActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.NewsDetailsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.CultureDetailsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.NewAboutApplicationActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.SettingForGuestActivity"
             android:screenOrientation="portrait"/>
 
     </application>

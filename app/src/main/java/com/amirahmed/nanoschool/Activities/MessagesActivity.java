@@ -143,10 +143,25 @@ public class MessagesActivity extends AppCompatActivity{
 
                 if(language==1)
                 {
-                    showMessage("تم الارسال بنجاح");
+
+                    if(title.getText().toString().equals("") || content.getText().toString().equals("") || title.getText().toString().equals("") || teacheredittext.getText().toString().equals("")){
+
+                        showMessage("المحتوى فارغ");
+                    }else
+                        {
+                            showMessage("تم الارسال بنجاح");
+                        }
+
                 }else
                     {
-                        showMessage("Send Successfully");
+                        if(title.getText().toString().equals("") || content.getText().toString().equals("") || title.getText().toString().equals("") || teacheredittext.getText().toString().equals("")){
+
+                            showMessage("Content Missed");
+                        }else
+                        {
+                            showMessage("Send Successfully");
+                        }
+
                     }
 
 

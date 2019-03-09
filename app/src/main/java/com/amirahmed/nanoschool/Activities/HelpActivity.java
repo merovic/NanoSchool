@@ -156,10 +156,30 @@ public class HelpActivity extends AppCompatActivity implements AdapterView.OnIte
                 details.setText("");
                 if(language==1)
                 {
-                    showMessage("تم الارسال بنجاح");
+                    if(sp.getSelectedItemPosition()==1)
+                    {
+                        showMessage("تم الارسال الاستفسار بنجاح");
+                    }else if(sp.getSelectedItemPosition()==2)
+                    {
+                        showMessage("تم الارسال المشكلة بنجاح");
+                    }else
+                        {
+                            showMessage("تم الارسال الاقتراح بنجاح");
+                        }
+
                 }else
                     {
-                        showMessage("Sent Successfully");
+                        if(sp.getSelectedItemPosition()==1)
+                        {
+                            showMessage("Enquiry Sent Successfully");
+                        }else if(sp.getSelectedItemPosition()==2)
+                        {
+                            showMessage("Problem Sent Successfully");
+                        }else
+                        {
+                            showMessage("Suggestion Sent Successfully");
+                        }
+
                     }
 
             }

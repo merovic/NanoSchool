@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:id="@+id/mainlayout"
+    android:minWidth="1000dp"
+    android:minHeight="480dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/max1"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="0 كم"/>
+
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/distancecomp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="المسافة"/>
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/distanceseeker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:max="200"
+        android:thumb="@drawable/locationsocial"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/min2"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="40000"/>
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/max2"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/pic2"
+            android:text="0"/>
+
+        <ImageView
+            android:id="@+id/pic2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/moneycomp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="المسافة"/>
+
+    </RelativeLayout>
+
+    <org.florescu.android.rangeseekbar.RangeSeekBar
+        android:id="@+id/feesseeker"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        app:absoluteMaxValue="40000"
+        app:absoluteMinValue="0"
+        app:showLabels="false"
+        app:alwaysActive="true"
+        app:barHeight="2dp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/multilayout"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_grayempty">
+
+            <ImageView
+                android:id="@+id/multipic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/boygirl"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/multi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="مشتركة"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/girlslayout"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_grayempty">
+
+            <ImageView
+                android:id="@+id/girlspic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/girl"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/girls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="بنات"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/boyslayout"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_grayempty">
+
+            <ImageView
+                android:id="@+id/boyspic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/boyblue"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/boys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/myPrimaryDarkColor"
+                android:text="بنين"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/typelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layoutDirection="rtl">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/studentscomp"/>
+
+        <LinearLayout
+            android:id="@+id/sub1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_grayempty"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/courselayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layoutDirection="rtl">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/educationcomp"/>
+
+        <LinearLayout
+            android:id="@+id/sub2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_grayempty"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendbutton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="تطبيق"
+        android:textColor="#FFF"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:background="@drawable/roundedfill"/>
+
+
+</LinearLayout>

@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_margin="3dp"
-                android:layout_height="150dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/photo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:scaleType="fitXY"
         android:src="@drawable/school3"/>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFF">
+
+        <com.like.LikeButton
+            app:icon_type="heart"
+            app:icon_size="25dp"
+            app:unlike_drawable="@drawable/love"
+            app:like_drawable="@drawable/lovered"
+            android:id="@+id/star_button"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:src="@drawable/share2"/>
+
+    </LinearLayout>
+
+</LinearLayout>

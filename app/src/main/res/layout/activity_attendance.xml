@@ -20,6 +20,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+        android:id="@+id/calendartitle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textAlignment="center"
+        android:text="November 2019"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="#5693d6"/>
+
 
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -52,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -149,22 +162,25 @@
                     android:text="نسبة الحضور و الغياب بعزر او بدون"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:visibility="gone"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:textSize="16sp"/>
 
                 <LinearLayout
                     android:id="@+id/layout12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -186,6 +202,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -207,6 +224,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView

@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.amirahmed.nanoschool"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -18,17 +19,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support:cardview-v7:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.daimajia.slider:library:1.1.5@aar'
@@ -42,16 +44,23 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'com.airbnb.android:lottie:2.5.1'
-    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
     implementation 'com.allattentionhere:autoplayvideos:0.2.0'
     implementation 'com.github.medyo:android-about-page:1.2.2'
     implementation 'com.github.apl-devs:appintro:v4.2.2'
     implementation 'com.droidninja:filepicker:2.1.5'
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-firestore:18.1.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:4.2.1'
+    implementation 'co.infinum:goldfinger:1.1.1'
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+    implementation 'com.github.ATHBK:UltimateTabLayout:1.3.0'
+    implementation 'com.codemybrainsout.rating:ratingdialog:1.0.8'
+    implementation 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
 
 }
