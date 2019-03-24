@@ -96,16 +96,16 @@ public class FeesFragment extends Fragment {
 
         if (language == 1) {
 
-           feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
-           feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
-           feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
+           feesItemList.add(new FeesItem("KG 2","12000 ريال","12000 ريال","800 ريال","340 ريال","340 ريال","المصروفات الدراسية غير شامبة الأنشطة الطلابية و الرحلات"));
+            feesItemList.add(new FeesItem("KG 2","12000 ريال","12000 ريال","800 ريال","340 ريال","340 ريال","المصروفات الدراسية غير شامبة الأنشطة الطلابية و الرحلات"));
+            feesItemList.add(new FeesItem("KG 2","12000 ريال","12000 ريال","800 ريال","340 ريال","340 ريال","المصروفات الدراسية غير شامبة الأنشطة الطلابية و الرحلات"));
 
 
         } else {
 
-            feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
-            feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
-            feesItemList.add(new FeesItem("KG 2","12000","1200","800","340"));
+            feesItemList.add(new FeesItem("KG 2","12000 Ryal","12000 Ryal","800 Ryal","340 Ryal","340 Ryal","Fees doesn't include student activities or trips"));
+            feesItemList.add(new FeesItem("KG 2","12000 Ryal","12000 Ryal","800 Ryal","340 Ryal","340 Ryal","Fees doesn't include student activities or trips"));
+            feesItemList.add(new FeesItem("KG 2","12000 Ryal","12000 Ryal","800 Ryal","340 Ryal","340 Ryal","Fees doesn't include student activities or trips"));
         }
     }
 

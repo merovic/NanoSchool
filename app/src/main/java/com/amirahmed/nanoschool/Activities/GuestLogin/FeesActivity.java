@@ -38,7 +38,7 @@ public class FeesActivity extends AppCompatActivity {
 
     LinearLayout container;
 
-    TextView schoolname,schoollevel;
+    TextView schoolname,cash,notcash;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,8 +60,9 @@ public class FeesActivity extends AppCompatActivity {
         container = findViewById(R.id.containerlayout);
 
         schoolname = findViewById(R.id.schoolname);
+        cash = findViewById(R.id.cash);
+        notcash = findViewById(R.id.notcash);
 
-        schoollevel = findViewById(R.id.schoollevel);
 
 
         if (language == 1) {
@@ -117,9 +118,11 @@ public class FeesActivity extends AppCompatActivity {
 
             container.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
 
-            schoolname.setText("EL-Eleem Educational School");
+            cash.setText("Premiums");
 
-            schoollevel.setText("International | All Levels");
+            notcash.setText("Payment Methods");
+
+            schoolname.setText("International School");
 
             titles.add("Secondary Stage");
             titles.add("Preparatory Stage");

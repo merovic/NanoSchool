@@ -15,7 +15,6 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.amirahmed.nanoschool.MainActivity;
 import com.amirahmed.nanoschool.R;
 import com.amirahmed.nanoschool.Utils.TinyDB;
 
@@ -220,16 +219,8 @@ public class SettingForGuestActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(tinyDB.getString("Setting").equals("Guest"))
-        {
-            Intent intent = new Intent(SettingForGuestActivity.this , VisitorActivity.class);
-            startActivity(intent);
-        }else
-        {
-            Intent intent = new Intent(SettingForGuestActivity.this , MainActivity.class);
-            startActivity(intent);
-        }
-
+        Intent intent = new Intent(SettingForGuestActivity.this , VisitorActivity.class);
+        startActivity(intent);
 
     }
 

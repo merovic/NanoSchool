@@ -139,6 +139,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layoutDirection="rtl"
+        android:visibility="invisible"
         android:layout_margin="10dp">
 
         <ImageView
@@ -173,6 +174,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
+        android:visibility="invisible"
         android:background="#919191"/>
 
 </LinearLayout>

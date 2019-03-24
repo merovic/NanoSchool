@@ -34,6 +34,7 @@
             android:src="@drawable/distancecomp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:text="المسافة"/>
 
     </RelativeLayout>
@@ -66,6 +67,14 @@
             android:text="40000"/>
 
         <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/feestext"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="المصاريف"/>
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
             android:id="@+id/max2"
             android:layout_width="50dp"
             android:gravity="center"
@@ -76,11 +85,12 @@
 
         <ImageView
             android:id="@+id/pic2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/moneycomp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:text="المسافة"/>
 
     </RelativeLayout>
@@ -194,8 +204,8 @@
         android:layoutDirection="rtl">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:src="@drawable/studentscomp"/>
 
@@ -235,8 +245,8 @@
         android:layoutDirection="rtl">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:src="@drawable/educationcomp"/>
 
@@ -253,6 +263,84 @@
 
             <Spinner
                 android:id="@+id/course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/arealayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layoutDirection="rtl">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/map"/>
+
+        <LinearLayout
+            android:id="@+id/sub3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_grayempty"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/citylayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layoutDirection="rtl">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/districtcomp"/>
+
+        <LinearLayout
+            android:id="@+id/sub4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_grayempty"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"

@@ -2,18 +2,26 @@ package com.amirahmed.nanoschool.Activities.GuestLogin;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.amirahmed.nanoschool.Adapters.GuestLogin.FeesTabsAdapter;
+import com.amirahmed.nanoschool.Adapters.GuestLogin.FragmentAdapterDemo;
 import com.amirahmed.nanoschool.R;
 import com.amirahmed.nanoschool.Utils.TinyDB;
+import com.athbk.ultimatetablayout.OnClickTabListener;
+import com.athbk.ultimatetablayout.UltimateTabLayout;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SchoolVisionActivity extends AppCompatActivity {
 
@@ -32,6 +40,16 @@ public class SchoolVisionActivity extends AppCompatActivity {
     TextView visiontext,goalstext,messagetext,mangertext,maintext;
 
     View visionview,goalsview,messageview,mangerview;
+
+
+    UltimateTabLayout tabLayout;
+    ViewPager viewPager;
+
+    FragmentAdapterDemo adapter;
+
+    List<String> titles = new ArrayList<>();
+
+    List<String> names = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,6 +109,15 @@ public class SchoolVisionActivity extends AppCompatActivity {
             getActionBarTextView().setVisibility(View.GONE);
 
 
+            titles.add("كلمة المدير");
+            titles.add("الرسالة");
+            titles.add("الأهداف");
+            titles.add("الرؤية");
+
+            names.add("الرؤية");
+            names.add("الأهداف");
+            names.add("الرسالة");
+            names.add("كلمة المدير");
 
         }else
         {
@@ -129,6 +156,25 @@ public class SchoolVisionActivity extends AppCompatActivity {
             maintext.setText("Vision statements outline a school’s objectives, and mission statements indicate how the school aims to achieve that vision. Schools might have one or both.\n" +
                     "\n" +
                     "Vision and mission statements in schools make a public declaration of the values of the school. But are such statements useful, or just nice to look at but of little substance? They can be useful – but it depends on what they include and how they’re used.");
+
+
+            titles.add("Vision");
+            titles.add("Goals");
+            titles.add("Message");
+            titles.add("Manger");
+
+            names.add("Vision statements outline a school’s objectives, and mission statements indicate how the school aims to achieve that vision. Schools might have one or both.\n" +
+                    "\n" +
+                    "Vision and mission statements in schools make a public declaration of the values of the school. But are such statements useful, or just nice to look at but of little substance? They can be useful – but it depends on what they include and how they’re used.");
+            names.add("Vision statements outline a school’s objectives, and mission statements indicate how the school aims to achieve that vision. Schools might have one or both.\\n\" +\n" +
+                    "                    \"\\n\" +\n" +
+                    "                    \"Vision and mission statements in schools make a public declaration of the values of the school. But are such statements useful, or just nice to look at but of little substance? They can be useful – but it depends on what they include and how they’re used.\"");
+            names.add("Vision statements outline a school’s objectives, and mission statements indicate how the school aims to achieve that vision. Schools might have one or both.\\n\" +\n" +
+                    "                    \"\\n\" +\n" +
+                    "                    \"Vision and mission statements in schools make a public declaration of the values of the school. But are such statements useful, or just nice to look at but of little substance? They can be useful – but it depends on what they include and how they’re used.\"");
+            names.add("Vision statements outline a school’s objectives, and mission statements indicate how the school aims to achieve that vision. Schools might have one or both.\\n\" +\n" +
+                    "                    \"\\n\" +\n" +
+                    "                    \"Vision and mission statements in schools make a public declaration of the values of the school. But are such statements useful, or just nice to look at but of little substance? They can be useful – but it depends on what they include and how they’re used.\"");
 
         }
 
@@ -172,7 +218,44 @@ public class SchoolVisionActivity extends AppCompatActivity {
             }
         });
 
-    }
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+
+
+
+//        options. if you override onClickTabListener.
+        tabLayout.setOnClickTabListener(new OnClickTabListener() {
+            @Override
+            public void onClickTab(int currentPos) {
+                Log.e("LOG", "OnClickTab " + currentPos);
+                viewPager.setCurrentItem(currentPos);
+                if (currentPos == 1){
+                    tabLayout.setNumberBadge(currentPos, 0);
+                }
+                else {
+                    tabLayout.setNumberBadge(currentPos, 1);
+                }
+            }
+        });
+
+        adapter = new FragmentAdapterDemo(getSupportFragmentManager(),4);
+        viewPager.setAdapter(adapter);
+
+        if(language==1)
+        {
+            viewPager.setCurrentItem(3);
+        }else
+        {
+            viewPager.setCurrentItem(0);
+        }
+
+        adapter.setTITLES(titles);
+        adapter.setNAMES(names);
+
+
+
+        tabLayout.setViewPager(viewPager, adapter);
+}
 
     private TextView getActionBarTextView() {
         TextView titleTextView = null;

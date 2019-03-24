@@ -7,13 +7,17 @@ public class FeesItem {
     String uniform;
     String books;
     String bus;
+    String bus2;
+    String comment;
 
-    public FeesItem(String title, String total, String uniform, String books, String bus) {
+    public FeesItem(String title, String total, String uniform, String books, String bus, String bus2, String comment) {
         this.title = title;
         this.total = total;
         this.uniform = uniform;
         this.books = books;
         this.bus = bus;
+        this.bus2 = bus2;
+        this.comment = comment;
     }
 
     public String getTitle() {
@@ -54,5 +58,21 @@ public class FeesItem {
 
     public void setBus(String bus) {
         this.bus = bus;
+    }
+
+    public String getBus2() {
+        return bus2;
+    }
+
+    public void setBus2(String bus2) {
+        this.bus2 = bus2;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

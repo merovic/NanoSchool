@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardElevation="20dp">
+
+        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+            android:id="@+id/maintext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="18dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="تَتَطلـَّعُ مَدْرَسَة ُ النُّخْـبَـةِ النَّموْذَجيَّةِ إلى تـَنْشِئَةِ جيْل ٍ مُبْدِع ٍ وَواع ٍ فِكْريًّا، وَمُتَمَيِّز ٍ أخْلاقِيًّا وعِلمِيًّا ، ومُؤْمِن ٍ بقضايا أمَّتِهِ ووَطَنِهِ، ومُتفاعِل ٍ مَعَ قِيَم ِ المُجْتمَع ِ الفِلِسْطينيِّ الأصيلـَة، وقادِر ٍعَلى تَوْظيفِ التَّقَنيَّاتِ العِلمِيَّةِ والعَمَليَّةِ؛ لِيواكِبَ النَّهْضَة َ التِكْنولوجِيَّة َ الـَّتي تَسودُ العالَمَ أجْمَع."/>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

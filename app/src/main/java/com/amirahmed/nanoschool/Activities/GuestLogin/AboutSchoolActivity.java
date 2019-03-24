@@ -3,17 +3,23 @@ package com.amirahmed.nanoschool.Activities.GuestLogin;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.amirahmed.nanoschool.Adapters.GuestLogin.SchoolFeathersAdapter;
+import com.amirahmed.nanoschool.Models.GuestLogin.SchoolsFeathersItem;
 import com.amirahmed.nanoschool.R;
 import com.amirahmed.nanoschool.Utils.TinyDB;
 import com.bumptech.glide.Glide;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AboutSchoolActivity extends AppCompatActivity {
 
@@ -25,9 +31,11 @@ public class AboutSchoolActivity extends AppCompatActivity {
 
     LinearLayout header;
 
-    TextView schoolname,schooltype,statsticstext,schoolfeatchures,studentsno,studentsaverage,size;
+    TextView schoolname,statsticstext,schoolfeatchures,studentsno,studentsaverage,size,areaofschool;
 
-    ImageView pic1,pic2,pic3,pic4;
+
+    private RecyclerView mRecyclerView;
+    private List<SchoolsFeathersItem> schoolsFeathersItems;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,17 +57,20 @@ public class AboutSchoolActivity extends AppCompatActivity {
         header = findViewById(R.id.headlayout);
 
         schoolname = findViewById(R.id.schoolname);
-        schooltype = findViewById(R.id.schooltype);
         statsticstext = findViewById(R.id.statsticstext);
         schoolfeatchures = findViewById(R.id.schoolfeatchures);
         studentsno = findViewById(R.id.studentsno);
         studentsaverage = findViewById(R.id.studentsaverage);
         size = findViewById(R.id.size);
+        areaofschool = findViewById(R.id.areaofschool);
 
-        pic1 = findViewById(R.id.pic1);
-        pic2 = findViewById(R.id.pic2);
-        pic3 = findViewById(R.id.pic3);
-        pic4 = findViewById(R.id.pic4);
+        mRecyclerView = findViewById(R.id.rv);
+
+        mRecyclerView.setHasFixedSize(true);
+
+        GridLayoutManager mGridlayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        mRecyclerView.setLayoutManager(mGridlayoutManager);
+
 
         if (language == 1) {
             mToolbar.setVisibility(View.VISIBLE);
@@ -104,19 +115,37 @@ public class AboutSchoolActivity extends AppCompatActivity {
             header.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
 
             schoolname.setText("EL-Eleem Educational School");
-            schooltype.setText("International | All Levels");
             statsticstext.setText("Statistics about School");
             schoolfeatchures.setText("School Features");
             studentsno.setText("Students in Class");
             studentsaverage.setText("Average Number");
             size.setText("School Size");
+            areaofschool.setText("2300 Meter");
 
-            Glide.with(getApplicationContext()).load(R.drawable.boysgirlsen).into(pic1);
-            Glide.with(getApplicationContext()).load(R.drawable.levelsen).into(pic2);
-            Glide.with(getApplicationContext()).load(R.drawable.labsen).into(pic3);
-            Glide.with(getApplicationContext()).load(R.drawable.pitchesen).into(pic4);
 
         }
+
+        initializeData();
+        initializeAdapter();
+    }
+
+    private void initializeData() {
+
+        //The Backgrounds and logos will be provided later
+
+        schoolsFeathersItems = new ArrayList<>();
+
+        schoolsFeathersItems.add(new SchoolsFeathersItem("https://res.cloudinary.com/dtec9smtu/image/upload/v1553440360/bg1.png","https://res.cloudinary.com/dtec9smtu/image/upload/v1553440348/boygirlblue.png","Boys and Girls"));
+        schoolsFeathersItems.add(new SchoolsFeathersItem("https://res.cloudinary.com/dtec9smtu/image/upload/v1553440360/bg1.png","https://res.cloudinary.com/dtec9smtu/image/upload/v1553440348/boygirlblue.png","Boys and Girls"));
+        schoolsFeathersItems.add(new SchoolsFeathersItem("https://res.cloudinary.com/dtec9smtu/image/upload/v1553440360/bg1.png","https://res.cloudinary.com/dtec9smtu/image/upload/v1553440348/boygirlblue.png","Boys and Girls"));
+        schoolsFeathersItems.add(new SchoolsFeathersItem("https://res.cloudinary.com/dtec9smtu/image/upload/v1553440360/bg1.png","https://res.cloudinary.com/dtec9smtu/image/upload/v1553440348/boygirlblue.png","Boys and Girls"));
+
+    }
+
+    private void initializeAdapter() {
+
+        SchoolFeathersAdapter adapter = new SchoolFeathersAdapter(schoolsFeathersItems);
+        mRecyclerView.setAdapter(adapter);
     }
 
     private TextView getActionBarTextView() {

@@ -2,6 +2,8 @@ package com.amirahmed.nanoschool.Fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -14,7 +16,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.amirahmed.nanoschool.Activities.GuestLogin.DistanceSelectionActivity;
+import com.amirahmed.nanoschool.Activities.GuestLogin.GuestSettingActivity;
+import com.amirahmed.nanoschool.Activities.GuestLogin.NotificationsSettingActivity;
+import com.amirahmed.nanoschool.Activities.HelpActivity;
+import com.amirahmed.nanoschool.Activities.NewAboutApplicationActivity;
+import com.amirahmed.nanoschool.Activities.SettingActivity;
 import com.amirahmed.nanoschool.Adapters.NavigationDrawerAdapter;
 import com.amirahmed.nanoschool.Models.NavigationItem;
 import com.amirahmed.nanoschool.R;
@@ -61,6 +73,14 @@ public class NavigationDrawerGuestFragment extends Fragment implements Navigatio
 
     View view;
 
+    LinearLayout languagetap,notificationstap,distancetab,contactustab,aboutustab;
+
+    TextView text1,text2,text3,text4,text5,title1,title2;
+
+    ImageView arrow1,arrow2,arrow3,arrow4,arrow5;
+
+    Button login;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +109,7 @@ public class NavigationDrawerGuestFragment extends Fragment implements Navigatio
         }else
         {
             view = inflater.inflate(R.layout.fragment_navigation_drawer_guest, container, false);
+
         }
         mDrawerList = view.findViewById(R.id.drawerList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -103,6 +124,117 @@ public class NavigationDrawerGuestFragment extends Fragment implements Navigatio
         //selectItem(mCurrentSelectedPosition);
 
         adapter.notifyDataSetChanged();
+
+        languagetap = view.findViewById(R.id.languagetap);
+        notificationstap = view.findViewById(R.id.notificationstap);
+        distancetab = view.findViewById(R.id.distancetap);
+        contactustab = view.findViewById(R.id.contactustap);
+        aboutustab = view.findViewById(R.id.aboutustap);
+
+        text1 = view.findViewById(R.id.text1);
+        text2 = view.findViewById(R.id.text2);
+        text3 = view.findViewById(R.id.text3);
+        text4 = view.findViewById(R.id.text4);
+        text5 = view.findViewById(R.id.text5);
+
+        title1 = view.findViewById(R.id.title1);
+        title2 = view.findViewById(R.id.title2);
+
+        arrow1 = view.findViewById(R.id.arrow1);
+        arrow2 = view.findViewById(R.id.arrow2);
+        arrow3 = view.findViewById(R.id.arrow3);
+        arrow4 = view.findViewById(R.id.arrow4);
+        arrow5 = view.findViewById(R.id.arrow5);
+
+        login = view.findViewById(R.id.loginbutton);
+
+        if(language!=1)
+        {
+            languagetap.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            notificationstap.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            distancetab.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            contactustab.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            aboutustab.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
+            text1.setText("Language");
+            text2.setText("Notifications");
+            text3.setText("Distance");
+            text4.setText("Contact us");
+            text5.setText("About Us");
+
+            title1.setText("Setting");
+            title2.setText("Information");
+
+            arrow1.setRotation(270);
+            arrow2.setRotation(270);
+            arrow3.setRotation(270);
+            arrow4.setRotation(270);
+            arrow5.setRotation(270);
+
+            login.setText("Signup");
+        }
+
+        languagetap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                Intent intent = new Intent(getActivity(),GuestSettingActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        notificationstap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                Intent intent = new Intent(getActivity(),NotificationsSettingActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        distancetab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                Intent intent = new Intent(getActivity(),DistanceSelectionActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        contactustab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                Intent intent = new Intent(getActivity(),HelpActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        aboutustab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                Intent intent = new Intent(getActivity(),NewAboutApplicationActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeDrawer();
+
+                final FragmentManager fm = getFragmentManager();
+                LoginFragment loginFragment = new LoginFragment();
+
+                loginFragment.show(fm,"TV_tag");
+            }
+        });
 
         return view;
     }
@@ -129,21 +261,21 @@ public class NavigationDrawerGuestFragment extends Fragment implements Navigatio
         if(language==1)
         {
             items.add(new NavigationItem("التقويم الدراسى", getResources().getDrawable(R.drawable.calendarmenu)));
-            items.add(new NavigationItem("مقارنة المدارس", getResources().getDrawable(R.drawable.comparison)));
-            items.add(new NavigationItem("عن التطبيق", getResources().getDrawable(R.drawable.about)));
-            items.add(new NavigationItem("المساعدة", getResources().getDrawable(R.drawable.help)));
-            items.add(new NavigationItem("الاعدادات", getResources().getDrawable(R.drawable.setting)));
-            items.add(new NavigationItem("مشاركة", getResources().getDrawable(R.drawable.sharenew)));
-            items.add(new NavigationItem("قيمنا", getResources().getDrawable(R.drawable.rate)));
+            items.add(new NavigationItem("قائمتى المفضلة", getResources().getDrawable(R.drawable.favorite)));
+            //items.add(new NavigationItem("عن التطبيق", getResources().getDrawable(R.drawable.about)));
+            //items.add(new NavigationItem("المساعدة", getResources().getDrawable(R.drawable.help)));
+            //items.add(new NavigationItem("الاعدادات", getResources().getDrawable(R.drawable.setting)));
+            //items.add(new NavigationItem("مشاركة", getResources().getDrawable(R.drawable.sharenew)));
+            //items.add(new NavigationItem("قيمنا", getResources().getDrawable(R.drawable.rate)));
         }else
         {
             items.add(new NavigationItem("Calender", getResources().getDrawable(R.drawable.calendarmenu)));
-            items.add(new NavigationItem("Comparision", getResources().getDrawable(R.drawable.comparison)));
-            items.add(new NavigationItem("About", getResources().getDrawable(R.drawable.about)));
-            items.add(new NavigationItem("Help", getResources().getDrawable(R.drawable.help)));
-            items.add(new NavigationItem("Setting", getResources().getDrawable(R.drawable.setting)));
-            items.add(new NavigationItem("Share", getResources().getDrawable(R.drawable.sharenew)));
-            items.add(new NavigationItem("Rate us", getResources().getDrawable(R.drawable.rate)));
+            items.add(new NavigationItem("Favorite List", getResources().getDrawable(R.drawable.favorite)));
+            //items.add(new NavigationItem("About", getResources().getDrawable(R.drawable.about)));
+            //items.add(new NavigationItem("Help", getResources().getDrawable(R.drawable.help)));
+            //items.add(new NavigationItem("Setting", getResources().getDrawable(R.drawable.setting)));
+            //items.add(new NavigationItem("Share", getResources().getDrawable(R.drawable.sharenew)));
+            //items.add(new NavigationItem("Rate us", getResources().getDrawable(R.drawable.rate)));
         }
 
         return items;

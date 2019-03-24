@@ -26,11 +26,9 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
 
     private List<SchoolsListItem> schoolsListItems;
 
-    Context context;
+    private Context context;
 
-    TinyDB tinyDB;
-
-    int language;
+    private int language;
 
     public SchoolsListAdapter(List<SchoolsListItem> schoolsListItems) {
         this.schoolsListItems = schoolsListItems;
@@ -42,7 +40,7 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
 
         context = parent.getContext();
 
-        tinyDB = new TinyDB(context);
+        TinyDB tinyDB = new TinyDB(context);
 
         language = tinyDB.getInt("language");
 
@@ -52,8 +50,7 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_schoolslist, parent, false);
 
 
-        SchoolsListViewHolder eh = new SchoolsListViewHolder(view);
-        return eh;
+        return new SchoolsListViewHolder(view);
     }
 
     @Override
@@ -98,13 +95,13 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
 
         if(position==0 || position==3 || position==6 || position==9 || position==12 || position==15)
         {
-         holder.image.setImageResource(R.drawable.schoollogo);
+         holder.image.setImageResource(R.drawable.trail1);
         }else if(position==1 || position==4 || position==7 || position==10 || position==13 || position==16)
         {
-            holder.image.setImageResource(R.drawable.schoollogo4);
+            holder.image.setImageResource(R.drawable.trail2);
         }else if(position==2 || position==5 || position==8 || position==11 || position==14)
         {
-            holder.image.setImageResource(R.drawable.schoollogo5);
+            holder.image.setImageResource(R.drawable.trail3);
         }
 
     }
@@ -122,14 +119,15 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
         return schoolsListItems.size();
     }
 
-    public class SchoolsListViewHolder extends RecyclerView.ViewHolder {
+    class SchoolsListViewHolder extends RecyclerView.ViewHolder {
 
         TextView name,distance,type;
         ImageView image,moon,female,certificate;
         LinearLayout mainlayout;
         Button compare;
 
-        public SchoolsListViewHolder(View itemView) {
+        @SuppressLint("SetTextI18n")
+        SchoolsListViewHolder(View itemView) {
             super(itemView);
 
             image = itemView.findViewById(R.id.logo);
@@ -142,15 +140,13 @@ public class SchoolsListAdapter extends RecyclerView.Adapter<SchoolsListAdapter.
             female = itemView.findViewById(R.id.female);
             certificate = itemView.findViewById(R.id.certificate);
 
-            if(language==1)
+            if(language!=1)
             {
+                mainlayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                compare.setText("Compare +");
+                compare.setTextSize(8);
 
-            }else
-                {
-                    mainlayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-                    compare.setText("Compare +");
-                    compare.setTextSize(8);
-                }
+            }
 
         }
     }

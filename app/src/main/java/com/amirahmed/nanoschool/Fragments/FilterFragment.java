@@ -30,18 +30,20 @@ public class FilterFragment extends DialogFragment {
 
     SeekBar seekBar1;
     RangeSeekBar seekBar2;
-    TextView max1,max2,min2,boy,girl,multi;
+    TextView max1,max2,min2,boy,girl,multi,feestext;
 
     ImageView boypic,girlpic,multipic;
 
-    LinearLayout mainlayout,typelayout,courselayout,sub1,sub2,multilayout,boyslayout,girlslayout;
+    LinearLayout mainlayout,typelayout,arealayout,citylayout,courselayout,sub1,sub2,sub3,sub4,multilayout,boyslayout,girlslayout;
 
     Button sendbutton;
 
-    Spinner typesspinner,coursesspinner;
+    Spinner typesspinner,coursesspinner,areaspinner,cityspinner;
 
     List<String> types = new ArrayList<>();
     List<String> courses = new ArrayList<>();
+    List<String> areas = new ArrayList<>();
+    List<String> cites = new ArrayList<>();
 
     TinyDB tinyDB;
 
@@ -60,6 +62,7 @@ public class FilterFragment extends DialogFragment {
         boy = rootView.findViewById(R.id.boys);
         girl = rootView.findViewById(R.id.girls);
         multi = rootView.findViewById(R.id.multi);
+        feestext = rootView.findViewById(R.id.feestext);
 
         boypic = rootView.findViewById(R.id.boyspic);
         girlpic = rootView.findViewById(R.id.girlspic);
@@ -68,8 +71,12 @@ public class FilterFragment extends DialogFragment {
         mainlayout = rootView.findViewById(R.id.mainlayout);
         typelayout = rootView.findViewById(R.id.typelayout);
         courselayout = rootView.findViewById(R.id.courselayout);
+        arealayout = rootView.findViewById(R.id.arealayout);
+        citylayout = rootView.findViewById(R.id.citylayout);
         sub1 = rootView.findViewById(R.id.sub1);
         sub2 = rootView.findViewById(R.id.sub2);
+        sub3 = rootView.findViewById(R.id.sub3);
+        sub4 = rootView.findViewById(R.id.sub4);
         multilayout = rootView.findViewById(R.id.multilayout);
         boyslayout = rootView.findViewById(R.id.boyslayout);
         girlslayout = rootView.findViewById(R.id.girlslayout);
@@ -86,6 +93,7 @@ public class FilterFragment extends DialogFragment {
         if(language==1)
         {
 
+            types.add("نوع المدرسة");
             types.add("عالمية");
             types.add("دولية");
             types.add("اهلية");
@@ -93,12 +101,20 @@ public class FilterFragment extends DialogFragment {
             types.add("حضانة");
             types.add("خاصة");
 
+            courses.add("نوع المنهج");
             courses.add("امريكى");
             courses.add("بريطانى");
             courses.add("فرنسى");
             courses.add("لافتيفى");
             courses.add("مسار مصرى");
             courses.add("برنامج دولى");
+
+            areas.add("المدينة");
+            areas.add("الرياض");
+            areas.add("جده");
+            cites.add("الحى");
+            cites.add("العليا");
+            cites.add("الصحافه");
 
         }else
             {
@@ -108,17 +124,25 @@ public class FilterFragment extends DialogFragment {
                 boy.setText("Boys");
                 girl.setText("Girls");
                 multi.setText("Multiple");
+                feestext.setText("Fees");
 
                 max1.setText("0 km");
 
                 mainlayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
                 typelayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
                 courselayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                arealayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                citylayout.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
                 sub1.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
                 sub2.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                sub3.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+                sub4.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
 
                 sendbutton.setText("Apply");
 
+                types.add("School Type");
                 types.add("Global");
                 types.add("International");
                 types.add("National");
@@ -126,12 +150,21 @@ public class FilterFragment extends DialogFragment {
                 types.add("Incubation");
                 types.add("Special");
 
+                courses.add("Course Type");
                 courses.add("American");
                 courses.add("British");
                 courses.add("French");
                 courses.add("Latvian");
                 courses.add("Egyptian");
                 courses.add("National Program");
+
+                areas.add("City");
+                areas.add("Mecca");
+                areas.add("Jeddah");
+
+                cites.add("District");
+                cites.add("Olya");
+                cites.add("Sehafa");
             }
 
         typesspinner = rootView.findViewById(R.id.type);
@@ -143,6 +176,8 @@ public class FilterFragment extends DialogFragment {
 
         adapter.notifyDataSetChanged();
 
+        //----
+
         coursesspinner = rootView.findViewById(R.id.course);
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, courses);
@@ -151,6 +186,28 @@ public class FilterFragment extends DialogFragment {
         coursesspinner.setAdapter(adapter2);
 
         adapter2.notifyDataSetChanged();
+
+        //----
+
+        areaspinner = rootView.findViewById(R.id.area);
+
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, areas);
+
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        areaspinner.setAdapter(adapter3);
+
+        adapter3.notifyDataSetChanged();
+
+        //----
+
+        cityspinner = rootView.findViewById(R.id.city);
+
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, cites);
+
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        cityspinner.setAdapter(adapter4);
+
+        adapter4.notifyDataSetChanged();
 
 
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

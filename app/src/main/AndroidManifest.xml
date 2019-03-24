@@ -135,11 +135,7 @@
         <activity android:name=".Activities.LoginActivity"
             android:screenOrientation="portrait">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
 
         </activity>
 
@@ -192,6 +188,36 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Activities.GuestLogin.SettingForGuestActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.RegistrationActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.NotificationsSettingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.DistanceSelectionActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Utils.NewSplashScreen"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+
+        </activity>
+
+        <activity android:name=".Activities.GuestLogin.FavoriteActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.GuestLoginActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.GuestLogin.GuestSettingActivity"
             android:screenOrientation="portrait"/>
 
     </application>

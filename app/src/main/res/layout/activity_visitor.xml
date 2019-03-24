@@ -73,13 +73,125 @@
 
     </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/schools_recycler_view"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:visibility="visible"
             android:layout_above="@id/linearlaycate"
-            android:layout_below="@+id/sliderlayout"/>
+            android:layout_below="@+id/sliderlayout">
+
+            <LinearLayout
+                android:id="@+id/twotabslayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layoutDirection="ltr"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/roundedtext3"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/maptab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                            android:id="@+id/maptext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:text="الخريطة"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/map"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/schoolstab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:background="@color/myPrimaryColor"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                            android:id="@+id/schoolstext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="#FFFF"
+                            android:text="المدارس"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/schoolguest"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/schools_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/maplayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/culture_rv"
@@ -136,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="#FFF"
-                        android:text="المدارس"/>
+                        android:text="الرئيسية"/>
 
                 </LinearLayout>
 
@@ -146,6 +258,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginTop="5dp"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <ImageView
@@ -176,9 +289,10 @@
                     <ImageView
                         android:id="@+id/messages2"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="2dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/helpmenu"/>
+                        android:src="@drawable/rss"/>
 
                     <com.amirahmed.nanoschool.Utils.TextViewWithFont
                         android:id="@+id/culturetext"
@@ -186,7 +300,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="#FFF"
-                        android:text="معلومة"/>
+                        android:text="اخر الأخبار"/>
 
                 </LinearLayout>
 

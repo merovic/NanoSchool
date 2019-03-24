@@ -21,7 +21,6 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         app:cardElevation="20dp">
 
         <LinearLayout
@@ -32,11 +31,21 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/schoollogo2"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                app:cardElevation="20dp">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/schoollogo"
+                    android:padding="1dp"
+                    android:scaleType="fitXY"/>
+
+            </android.support.v7.widget.CardView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,54 +65,57 @@
                     android:layout_marginBottom="5dp"
                     android:text="مدرسة العلم العالمية"/>
 
-                <com.amirahmed.nanoschool.Utils.TextViewWithFont
-                    android:id="@+id/schoollevel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="دولية | جميع المراحل"/>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/male"/>
-
-                    <ImageView
-                        android:id="@+id/female"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/female"/>
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/notcash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:text="الاقساط"/>
 
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_margin="5dp"
-                        android:src="@drawable/sunny"/>
+                        android:layout_gravity="center"
+                        android:src="@drawable/checkgreen"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="#D3D3D3"/>
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/cash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:text="طرق الدفع"/>
 
                     <ImageView
-                        android:id="@+id/moon"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_margin="5dp"
-                        android:src="@drawable/moon"/>
+                        android:layout_gravity="center"
+                        android:src="@drawable/cash"/>
 
                     <ImageView
-                        android:id="@+id/certificate"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_margin="5dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/wasc"/>
+                        android:layout_gravity="center"
+                        android:src="@drawable/visa"/>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 

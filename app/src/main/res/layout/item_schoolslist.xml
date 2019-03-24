@@ -64,7 +64,7 @@
                     android:layout_marginLeft="10dp"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="10dp"
@@ -105,6 +105,17 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/wasc"/>
 
+
+                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                        android:id="@+id/distance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:text="١٧ كم"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
 
@@ -119,11 +130,31 @@
                 android:orientation="vertical">
 
                 <com.amirahmed.nanoschool.Utils.TextViewWithFont
-                    android:id="@+id/distance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:text="١٧ كم"
                     android:textSize="12sp" />
+
+                <com.like.LikeButton
+                    android:id="@+id/fav"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    app:unlike_drawable="@drawable/love"
+                    app:like_drawable="@drawable/lovered"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/rounded_fill"
+                    android:text="متابعة"
+                    android:visibility="gone"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"/>
 
                 <Button
                     android:id="@+id/visitorbutton"

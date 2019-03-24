@@ -3,6 +3,7 @@ package com.amirahmed.nanoschool.Activities.GuestLogin;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -28,6 +29,7 @@ import com.amirahmed.nanoschool.Adapters.GuestLogin.CultureAdapter;
 import com.amirahmed.nanoschool.Adapters.GuestLogin.NewsAdapter;
 import com.amirahmed.nanoschool.Adapters.GuestLogin.SchoolsListAdapter;
 import com.amirahmed.nanoschool.Fragments.FilterFragment;
+import com.amirahmed.nanoschool.Fragments.LoginFragment;
 import com.amirahmed.nanoschool.Fragments.NavigationDrawerGuestFragment;
 import com.amirahmed.nanoschool.Models.GuestLogin.CultureItem;
 import com.amirahmed.nanoschool.Models.GuestLogin.NewsItem;
@@ -41,13 +43,22 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class VisitorActivity extends AppCompatActivity implements NavigationDrawerCallbacks,BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener,SearchView.OnQueryTextListener {
+public class VisitorActivity extends AppCompatActivity implements NavigationDrawerCallbacks,BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener,SearchView.OnQueryTextListener,OnMapReadyCallback {
 
+    private GoogleMap mMap;
     private SliderLayout mDemoSlider;
     private NavigationDrawerGuestFragment mNavigationDrawerFragment;
     private Toolbar mToolbar,mToolbar2;
@@ -72,11 +83,11 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
 
     SearchView searchView;
 
-    RelativeLayout sliderlayout;
+    RelativeLayout sliderlayout,schoolstab,maptab;
 
-    LinearLayout bottommenu,newslayout,infolayout,schoolslayout;
+    LinearLayout bottommenu,newslayout,infolayout,schoolslayout,twotabslayout,maplayout;
 
-    TextView allschoolstext,newstext,culturetext;
+    TextView allschoolstext,newstext,culturetext,schoolstext,maptext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,6 +110,12 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
         allschoolstext = findViewById(R.id.allschoolstext);
         newstext = findViewById(R.id.newstext);
         culturetext = findViewById(R.id.culturetext);
+        twotabslayout = findViewById(R.id.twotabslayout);
+        schoolstext = findViewById(R.id.schoolstext);
+        maptext = findViewById(R.id.maptext);
+        schoolstab = findViewById(R.id.schoolstab);
+        maptab = findViewById(R.id.maptab);
+        maplayout = findViewById(R.id.maplayout);
 
         if(language==1)
         {
@@ -125,10 +142,18 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
             filter = mToolbar2.findViewById(R.id.filter);
 
             bottommenu.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-            allschoolstext.setText("Schools");
+            allschoolstext.setText("Main");
             newstext.setText("News");
             culturetext.setText("Info");
+            twotabslayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            schoolstext.setText("Schools");
+            maptext.setText("Map");
         }
+
+        final FragmentManager fm = getFragmentManager();
+        LoginFragment loginFragment = new LoginFragment();
+
+        loginFragment.show(fm,"TV_tag");
 
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,11 +230,22 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
 
                 sliderlayout.setVisibility(View.VISIBLE);
                 rv2.setVisibility(View.VISIBLE);
+                twotabslayout.setVisibility(View.VISIBLE);
                 rv3.setVisibility(View.GONE);
                 rv4.setVisibility(View.GONE);
 
                 searchView.setVisibility(View.VISIBLE);
                 filter.setVisibility(View.VISIBLE);
+
+                if(maptext.getCurrentTextColor()==Color.WHITE)
+                {
+                    rv2.setVisibility(View.GONE);
+                    maplayout.setVisibility(View.VISIBLE);
+                }else
+                    {
+                        rv2.setVisibility(View.VISIBLE);
+                        maplayout.setVisibility(View.GONE);
+                    }
 
             }
         });
@@ -234,12 +270,50 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
             public void onClick(View v) {
 
                 sliderlayout.setVisibility(View.GONE);
+                twotabslayout.setVisibility(View.GONE);
+                maplayout.setVisibility(View.GONE);
                 rv2.setVisibility(View.GONE);
                 rv3.setVisibility(View.GONE);
                 rv4.setVisibility(View.VISIBLE);
 
                 searchView.setVisibility(View.INVISIBLE);
                 filter.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
+
+        schoolstab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                schoolstab.setBackgroundColor(Color.parseColor("#4690D9"));
+                maptab.setBackgroundColor(Color.WHITE);
+                schoolstext.setTextColor(Color.WHITE);
+                maptext.setTextColor(Color.GRAY);
+
+                maplayout.setVisibility(View.GONE);
+
+                rv2.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        maptab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                schoolstab.setBackgroundColor(Color.WHITE);
+                maptab.setBackgroundColor(Color.parseColor("#4690D9"));
+                schoolstext.setTextColor(Color.GRAY);
+                maptext.setTextColor(Color.WHITE);
+
+                maplayout.setVisibility(View.VISIBLE);
+
+                rv2.setVisibility(View.GONE);
+
+
             }
         });
 
@@ -356,7 +430,7 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
             startActivity(intent);
         }else if (position==1)
         {
-            Intent intent = new Intent(VisitorActivity.this , ComparisionActivity.class);
+            Intent intent = new Intent(VisitorActivity.this , FavoriteActivity.class);
             startActivity(intent);
         }else if (position==2)
         {
@@ -368,7 +442,7 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
             startActivity(intent);
         }else if (position==4)
         {
-            Intent intent = new Intent(VisitorActivity.this , SettingActivity.class);
+            Intent intent = new Intent(VisitorActivity.this , GuestSettingActivity.class);
             startActivity(intent);
 
             tinyDB.putString("Setting","Guest");
@@ -613,5 +687,51 @@ public class VisitorActivity extends AppCompatActivity implements NavigationDraw
             }
         }
         return filteredModelList;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // create marker
+        MarkerOptions marker = new MarkerOptions().position(new LatLng(24.638007, 46.712315)).title("El-Eleem School");
+
+        MarkerOptions marker2 = new MarkerOptions().position(new LatLng(24.821367, 46.780950)).title("El-Hayaa School");
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(24.638007, 46.712315)).title(
+                "El-Eleem School").icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest))).showInfoWindow();
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(24.821367, 46.780950)).title(
+                "El-Hayaa School").icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest))).showInfoWindow();
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(24.493124, 46.901809)).title(
+                "El-Amaal School").icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest))).showInfoWindow();
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(25.009434, 46.495355))).showInfoWindow();
+
+        // Changing marker icon
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest));
+        marker2.icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+
+                Intent intent = new Intent(VisitorActivity.this,SchoolDetailsActivity.class);
+                startActivity(intent);
+
+                return true;
+            }
+        });
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(24.638007, 46.712315);
+        LatLng sydney2 = new LatLng(25.009434, 46.495355);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney2));
+
+        mMap.animateCamera(CameraUpdateFactory.zoomTo( 10.0f));
     }
 }

@@ -19,12 +19,20 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-public class SchoolDetailsActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
+public class SchoolDetailsActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener,OnMapReadyCallback {
 
+    private GoogleMap mMap;
     private Toolbar mToolbar,mToolbar2;
 
     TinyDB tinyDB;
@@ -33,9 +41,9 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
 
     private SliderLayout mDemoSlider;
 
-    LinearLayout vision,about,social,location,fees,req;
+    LinearLayout vision,about,location,fees,req,bottommenu;
 
-    TextView visiontext,abouttext,socialtext,locationtext,feestext,reqtext;
+    TextView visiontext,abouttext,feestext,reqtext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,10 +63,8 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
 
         visiontext = findViewById(R.id.visiontext);
         abouttext = findViewById(R.id.abouttext);
-        socialtext = findViewById(R.id.socialtext);
         reqtext = findViewById(R.id.requesttext);
         feestext = findViewById(R.id.feestext);
-        locationtext = findViewById(R.id.locationtext);
 
 
         if(language==1)
@@ -106,20 +112,18 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
 
             visiontext.setText("Vision");
             abouttext.setText("About School");
-            socialtext.setText("Social Media");
             reqtext.setText("Registration");
             feestext.setText("Fees");
-            locationtext.setText("Location");
         }
 
         mDemoSlider = findViewById(R.id.slider);
 
         HashMap<String,String> url_maps = new HashMap<>();
-        url_maps.put("Banner 1", "http://res.cloudinary.com/dtec9smtu/image/upload/v1523623875/WhatsApp_Image_2018-04-13_at_10.13.26_AM.jpg");
-        url_maps.put("Banner 2", "http://res.cloudinary.com/dtec9smtu/image/upload/v1523624016/WhatsApp_Image_2018-04-13_at_10.13.26_AM-2.jpg");
-        url_maps.put("Banner 3", "http://res.cloudinary.com/dtec9smtu/image/upload/v1523624029/WhatsApp_Image_2018-04-13_at_10.13.26_AM-3.jpg");
-        url_maps.put("Banner 4", "http://res.cloudinary.com/dtec9smtu/image/upload/v1523624041/WhatsApp_Image_2018-04-13_at_10.13.27_AM.jpg");
-        url_maps.put("Banner 5", "http://res.cloudinary.com/dtec9smtu/image/upload/v1523624058/WhatsApp_Image_2018-04-13_at_10.13.27_AM-2.jpg");
+        url_maps.put("Banner 1", "https://image.shutterstock.com/image-photo/teacher-asking-question-her-class-450w-309241172.jpg");
+        url_maps.put("Banner 2", "https://image.shutterstock.com/image-photo/kids-raising-hands-teacher-elementary-450w-667966174.jpg");
+        url_maps.put("Banner 3", "https://image.shutterstock.com/image-photo/kids-showing-hands-during-lesson-450w-667978948.jpg");
+        url_maps.put("Banner 4", "https://image.shutterstock.com/image-photo/teacher-asking-question-her-class-450w-309241172.jpg");
+        url_maps.put("Banner 5", "https://image.shutterstock.com/image-photo/kids-raising-hands-teacher-elementary-450w-667966174.jpg");
 
 
         HashMap<String,Integer> file_maps = new HashMap<>();
@@ -154,10 +158,15 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
 
         vision = findViewById(R.id.visionlayout);
         about = findViewById(R.id.aboutlayout);
-        social = findViewById(R.id.contactlayout);
         location = findViewById(R.id.locationlayout);
         fees = findViewById(R.id.feeslayout);
         req = findViewById(R.id.reglayout);
+        bottommenu = findViewById(R.id.bottommenu);
+
+        if(language!=1)
+        {
+            bottommenu.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+        }
 
         vision.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,21 +184,6 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
             }
         });
 
-        social.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SchoolDetailsActivity.this , SocialMediaActivity.class );
-                startActivity(intent);
-            }
-        });
-
-        location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SchoolDetailsActivity.this , LocationActivity.class );
-                startActivity(intent);
-            }
-        });
 
         fees.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,6 +200,11 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
                 startActivity(intent);
             }
         });
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
 
     }
 
@@ -252,5 +251,31 @@ public class SchoolDetailsActivity extends AppCompatActivity implements BaseSlid
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // create marker
+        MarkerOptions marker = new MarkerOptions().position(new LatLng(24.638007, 46.712315)).title("El-Eleem School");
+
+        MarkerOptions marker2 = new MarkerOptions().position(new LatLng(24.821367, 46.780950));
+
+        // Changing marker icon
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.schoolguest));
+        marker2.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationsocial));
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(24.638007, 46.712315);
+        LatLng sydney2 = new LatLng(24.821367, 46.780950);
+
+        mMap.addMarker(marker);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        mMap.addMarker(marker2);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney2));
+
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 10.0f ));
     }
 }

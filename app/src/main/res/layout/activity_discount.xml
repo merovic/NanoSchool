@@ -37,14 +37,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layoutDirection="rtl"
-                    android:layout_margin="10dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/schoollogo2"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        app:cardElevation="20dp">
+
+                        <ImageView
+                            android:id="@+id/logo"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/schoollogo"
+                            android:padding="1dp"
+                            android:scaleType="fitXY"/>
+
+                    </android.support.v7.widget.CardView>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -63,13 +72,6 @@
                             android:textColor="#000"
                             android:text="مدرسة العلم العالمية"/>
 
-                        <com.amirahmed.nanoschool.Utils.TextViewWithFont
-                            android:id="@+id/schoollevels"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:text="دولية | جميع المراحل"/>
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -80,35 +82,14 @@
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/male"/>
+                                android:src="@drawable/discountcom"/>
 
-                            <ImageView
-                                android:id="@+id/female"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/female"/>
-
-                            <ImageView
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/sunny"/>
-
-                            <ImageView
-                                android:id="@+id/moon"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/moon"/>
-
-                            <ImageView
-                                android:id="@+id/certificate"
-                                android:layout_width="16dp"
-                                android:layout_height="16dp"
-                                android:layout_margin="5dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/wasc"/>
+                            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                                android:id="@+id/discounttext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="المدرسة تقبل التقسيط"/>
 
                         </LinearLayout>
 
@@ -138,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
                         android:padding="5dp"
+                        android:visibility="gone"
                         android:layout_marginRight="12dp"
                         android:layout_marginLeft="12dp"
                         android:orientation="horizontal">
@@ -168,6 +150,7 @@
                         android:background="@drawable/rounded_grayempty"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
                         android:layoutDirection="rtl"
                         android:orientation="horizontal">
 
@@ -193,6 +176,73 @@
                             android:textSize="16sp"
                             android:inputType="text"
                             android:background="@drawable/roundedblank"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/mobilemainlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/rounded_grayempty">
+
+                            <EditText
+                                android:id="@+id/code"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:inputType="number"
+                                android:background="@drawable/roundedblank"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/mobilelayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_grayempty"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:layoutDirection="rtl"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/mobiledis"/>
+
+                            <View
+                                android:layout_width="0.5dp"
+                                android:layout_height="match_parent"
+                                android:background="#919191"/>
+
+                            <EditText
+                                android:id="@+id/mobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:hint="رقم الجوال"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:textSize="16sp"
+                                android:inputType="number"
+                                android:background="@drawable/roundedblank"/>
+
+                        </LinearLayout>
+
+
 
                     </LinearLayout>
 
@@ -233,21 +283,47 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/mobilelayout"
+                        android:id="@+id/addlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/plus"/>
+
+                        <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                            android:id="@+id/addtext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="اضافة الأبناء"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/kidnamelayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_grayempty"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:layout_marginTop="8dp"
                         android:layoutDirection="rtl"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            android:src="@drawable/mobiledis"/>
+                            android:src="@drawable/avatardis"/>
 
                         <View
                             android:layout_width="0.5dp"
@@ -255,18 +331,110 @@
                             android:background="#919191"/>
 
                         <EditText
-                            android:id="@+id/mobile"
+                            android:id="@+id/kidname"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:hint="رقم الجوال"
+                            android:hint="اسم الطفل"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
                             android:textSize="16sp"
-                            android:inputType="number"
+                            android:inputType="textEmailAddress"
                             android:background="@drawable/roundedblank"/>
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/levellayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_grayempty"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layoutDirection="rtl"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/levelsdis"/>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#919191"/>
+
+                        <LinearLayout
+                            android:id="@+id/sub"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layoutDirection="rtl"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/level"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rowlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_grayempty"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layoutDirection="rtl"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/studentdis"/>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#919191"/>
+
+                        <LinearLayout
+                            android:id="@+id/sub2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layoutDirection="rtl"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/row"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/additionalcheck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="طلب خصم أضافى"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layoutDirection="rtl"
+                        android:layout_marginTop="8dp"/>
 
                     <LinearLayout
                         android:id="@+id/sonslayout"
@@ -277,6 +445,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
                         android:layoutDirection="rtl"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -307,6 +476,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
                         android:layoutDirection="rtl"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -331,6 +501,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:visibility="gone"
                         android:background="@drawable/rounded_grayempty"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"

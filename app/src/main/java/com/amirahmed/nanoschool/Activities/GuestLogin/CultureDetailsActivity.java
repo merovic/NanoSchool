@@ -1,5 +1,6 @@
 package com.amirahmed.nanoschool.Activities.GuestLogin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -148,6 +149,7 @@ public class CultureDetailsActivity extends AppCompatActivity {
         rv2.setAdapter(adapter);
 
     }
+
 
     private TextView getActionBarTextView() {
         TextView titleTextView = null;

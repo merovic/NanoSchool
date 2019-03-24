@@ -25,121 +25,150 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:src="@drawable/eschoola"
             android:paddingLeft="5dp"
             android:paddingRight="5dp" />
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:id="@+id/abouttap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp">
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/about"/>
 
             <com.amirahmed.nanoschool.Utils.TextViewWithFont
-                android:id="@+id/abouttext"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="المؤسسة التعليميّة هي عبارة عن مكان أو موقع يتم فيه التقاء فئات مجتمعيّة مختلفة الأعمار، ويتم فيها تعليمهم وتزويدهم بالكثير من المعلومات المختلفة حسب نوع هذه المؤسسة التعليميّة، وتتكون هذه المؤسسة التعليميّة من أعضاء الهيئة التدريسيّة أو المعلمون، والطلاب، وأولياء الأمور، والهيئات الإداريّة فيها، ويقوم الطلاب بالبقاء في هذه المؤسسة لتلقي العلم لفترات زمنيّة معيّنة، تعتمد هذه الفترة أيضاً على نوع المؤسسة التعليميّة، فهناك العديد من أنواع المؤسسات التعليميّة مثل رياض الأطفال، والمدارس، والمعاهد، والكليات، والجامعات "
-                android:textSize="20sp"
-                android:layout_margin="5dp"
-                android:textStyle="bold"/>
+                android:id="@+id/text1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/myTextPrimaryColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="من نحن"/>
 
+            <ImageView
+                android:id="@+id/arrow1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:rotation="90"/>
 
+        </LinearLayout>
 
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:id="@+id/termstap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp">
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/list"/>
 
-                <LinearLayout
-                    android:id="@+id/followlayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layoutDirection="rtl"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/text2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/myTextPrimaryColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="سياسة الخصوصية"/>
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/sharesocial"/>
+            <ImageView
+                android:id="@+id/arrow2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:rotation="90"/>
 
-                    <com.amirahmed.nanoschool.Utils.TextViewWithFont
-                        android:id="@+id/followtext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:text="تابعنا "/>
+        </LinearLayout>
 
-                </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ratetap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginRight="35dp"
-                    android:layout_marginLeft="35dp"
-                    android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/rate"/>
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/facebooksocial"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/instasocial"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/twittersocial"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/youtubesocial"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/linkedinsocial"/>
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/text3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/myTextPrimaryColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="قيمنا"/>
 
 
-                </LinearLayout>
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sharetap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/share2"/>
+
+            <com.amirahmed.nanoschool.Utils.TextViewWithFont
+                android:id="@+id/text4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/myTextPrimaryColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="مشاركة التطبيق"/>
 
 
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
+
 
     </LinearLayout>
 

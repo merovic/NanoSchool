@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
               android:layoutDirection="rtl"
               android:layout_height="48dp">
 
@@ -15,5 +16,6 @@
         android:text="jhjhvjhv"
         android:textStyle="bold"
         android:textColor="@color/myTextPrimaryColor"
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        tools:ignore="RtlCompat" />
 </LinearLayout>

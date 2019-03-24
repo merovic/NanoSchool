@@ -181,6 +181,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapter.startListening();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

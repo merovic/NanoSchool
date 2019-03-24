@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,26 +30,34 @@ public class DiscountRequestActivity extends AppCompatActivity {
 
     int language;
 
-    LinearLayout container,header,name,email,mobile,sons,levels;
+    LinearLayout container,header,name,email,mobile,sons,levels,mobilemain,add,kidname,level,row,sub,sub2;
 
-    EditText nameedittext,mobileedittext,emailedittext,detailsedittext;
+    EditText nameedittext,mobileedittext,emailedittext,detailsedittext,codeedittext,kidnameedittext;
 
-    Spinner sonsspinner,levelsspinner;
+    CheckBox additional;
 
-    List<String> sonslist = new ArrayList<>();
+    Spinner rowsspinner,levelsspinner;
+
+    List<String> rowslist = new ArrayList<>();
     List<String> levelslist = new ArrayList<>();
 
     Button send;
 
-    TextView schoolname,schoollevels,headertext;
+    TextView schoolname,discountetext,headertext,addtext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discount);
-
         tinyDB = new TinyDB(getApplicationContext());
         language = tinyDB.getInt("language");
+        if(language==1)
+        {
+            setContentView(R.layout.activity_discount);
+        }else
+            {
+                setContentView(R.layout.activity_discount_en);
+            }
+
 
         mToolbar = findViewById(R.id.toolbar_actionbar);
         mToolbar2 = findViewById(R.id.toolbar_actionbar_en);
@@ -62,22 +71,34 @@ public class DiscountRequestActivity extends AppCompatActivity {
 
         schoolname = findViewById(R.id.schoolname);
 
-        schoollevels = findViewById(R.id.schoollevels);
+        discountetext = findViewById(R.id.discounttext);
 
         headertext = findViewById(R.id.headertext);
         header = findViewById(R.id.headerlayout);
+
+        addtext = findViewById(R.id.addtext);
 
         name = findViewById(R.id.namelayout);
         email = findViewById(R.id.emaillayout);
         mobile = findViewById(R.id.mobilelayout);
         sons = findViewById(R.id.sonslayout);
         levels = findViewById(R.id.levelslayout);
+        mobilemain = findViewById(R.id.mobilemainlayout);
+        add = findViewById(R.id.addlayout);
+        kidname = findViewById(R.id.kidnamelayout);
+        level = findViewById(R.id.levellayout);
+        row = findViewById(R.id.rowlayout);
+        sub = findViewById(R.id.sub);
+        sub2 = findViewById(R.id.sub2);
 
         nameedittext = findViewById(R.id.name);
         mobileedittext = findViewById(R.id.mobile);
         emailedittext = findViewById(R.id.email);
         detailsedittext = findViewById(R.id.details);
+        codeedittext = findViewById(R.id.code);
+        kidnameedittext = findViewById(R.id.kidname);
 
+        additional = findViewById(R.id.additionalcheck);
         send = findViewById(R.id.sendbutton);
 
 
@@ -86,12 +107,12 @@ public class DiscountRequestActivity extends AppCompatActivity {
             mToolbar.setVisibility(View.VISIBLE);
             mToolbar2.setVisibility(View.GONE);
 
-            mToolbar.setTitle("طلب خصم");
+            mToolbar.setTitle("طلب تسجيل");
 
             TextView textView = mToolbar.findViewById(R.id.toolbartext);
-            textView.setText("طلب خصم");
+            textView.setText("طلب تسجيل");
 
-            getActionBarTextView().setText("طلب خصم");
+            getActionBarTextView().setText("طلب تسجيل");
 
             arrow.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -103,19 +124,30 @@ public class DiscountRequestActivity extends AppCompatActivity {
             getActionBarTextView().setVisibility(View.GONE);
 
             levelslist.add("اختر المرحلة التعليمية");
-            sonslist.add("اختر عدد الأبناء");
+
+            levelslist.add("اختر المرحلة");
+            levelslist.add("الأبتدائية");
+            levelslist.add("الأعدادية");
+            levelslist.add("الثانوية");
+
+            rowslist.add("اختر الصف");
+            rowslist.add("١-١");
+            rowslist.add("٢-١");
+            rowslist.add("٣-١");
+            rowslist.add("٤-١");
+            rowslist.add("٥-١");
 
         }else
         {
             mToolbar2.setVisibility(View.VISIBLE);
             mToolbar.setVisibility(View.GONE);
 
-            mToolbar2.setTitle("Discount Request");
+            mToolbar2.setTitle("Registration Request");
 
             TextView textView = mToolbar2.findViewById(R.id.toolbartext);
-            textView.setText("Discount Request");
+            textView.setText("Registration Request");
 
-            getActionBarTextView().setText("Discount Request");
+            getActionBarTextView().setText("Registration Request");
 
             arrowen.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -131,7 +163,7 @@ public class DiscountRequestActivity extends AppCompatActivity {
 
             schoolname.setText("EL-Eleem Educational School");
 
-            schoollevels.setText("International | All Levels");
+            discountetext.setText("School Accepts Installments");
 
             header.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
 
@@ -142,38 +174,54 @@ public class DiscountRequestActivity extends AppCompatActivity {
             mobile.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
             sons.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
             levels.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            add.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            kidname.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            level.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            row.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            sub.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            sub2.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            mobilemain.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
 
-            nameedittext.setHint("Enter Name");
+            nameedittext.setHint("Enter your Name");
             mobileedittext.setHint("Mobile Number");
             emailedittext.setHint("Email Address");
             detailsedittext.setHint("Notes");
+            kidnameedittext.setHint("Son Name");
+
+            addtext.setText("Add Sons");
+
+            additional.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            additional.setText("Request Additional Discount");
 
             send.setText("Send");
 
             levelslist.add("Enter Educational Level");
-            sonslist.add("Enter Number of Kids");
+
+            levelslist.add("Choose Level");
+            levelslist.add("Primary");
+            levelslist.add("Intermediate");
+            levelslist.add("Secondary");
+
+            rowslist.add("Choose Grade");
+            rowslist.add("1-1");
+            rowslist.add("2-1");
+            rowslist.add("3-1");
+            rowslist.add("4-1");
+            rowslist.add("5-1");
         }
 
-        levelslist.add("KG 1-2");
-        levelslist.add("Grade 1-6");
-        levelslist.add("KG 4-2");
 
-        sonslist.add("1");
-        sonslist.add("2");
-        sonslist.add("3");
-        sonslist.add("4");
-        sonslist.add("5");
 
-        sonsspinner = findViewById(R.id.sons);
+        rowsspinner = findViewById(R.id.row);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(DiscountRequestActivity.this, android.R.layout.simple_spinner_item, sonslist);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(DiscountRequestActivity.this, android.R.layout.simple_spinner_item, rowslist);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sonsspinner.setAdapter(adapter);
+        rowsspinner.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
 
-        levelsspinner = findViewById(R.id.levels);
+        levelsspinner = findViewById(R.id.level);
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(DiscountRequestActivity.this, android.R.layout.simple_spinner_item, levelslist);
 
